@@ -19,3 +19,13 @@ Route::get('/Pontos_Turisticos/listar', [GuiaController::class, 'listarTodosPont
 Route::get('/Cadastrar_Pontos_Turisticos/Adicionar_Novo_Local', [GuiaController::class, 'addNovoLocal']);
 Route::get('/Pontos_Turisticos/{id}', [GuiaController::class, 'show']);
 Route::post('/Cadastrar_Novo_Local', [GuiaController::class, 'store']);
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});

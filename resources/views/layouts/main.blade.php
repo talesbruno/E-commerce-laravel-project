@@ -31,7 +31,17 @@
                 <li><a href="/Pontos_Turisticos/listar">Pontos Turísticos</a></li>
                 <li><a href="/Cadastrar_Pontos_Turisticos/Adicionar_Novo_Local">Hospedagem</a></li>
                 <li><a href="#">Comer e Beber</a></li>
-                <li><a href="/login/login">Entrar</a></li>
+                @guest
+                <li><a href="/login">Entrar</a></li>
+                @endguest
+                @auth
+                <li><a href="/dashboard">Meus Locais</a></li>
+                <li><form action="/logout" method="POST">
+                    @csrf
+                    <a href="/logout" onclick="event.preventDefault();
+                    this.closest('form').submit();">Sair</a>
+                </form></li>
+                @endauth
             </ul>
         </nav>
     </header>
