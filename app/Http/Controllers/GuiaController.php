@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pontosturistico;
+use App\Models\User;
 
 class GuiaController extends Controller
 {
@@ -55,7 +56,9 @@ class GuiaController extends Controller
 
 
         }
-
+        $user = auth()->user();
+        $pontosturistico->user_id = $user->id;
+        
         $pontosturistico->save();
 
         return redirect('/')->with('msg', 'Local cadastrado com sucesso!');
@@ -64,6 +67,8 @@ class GuiaController extends Controller
     public function show($id){
         $pontosturistico = Pontosturistico::findOrFail($id);
 
-        return view('locais.show', ['pontosturistico'=>$pontosturistico]);
+        $donoDoLocal = User::where('id', $pontosturistico->user_id)->first()->toArray();
+
+        return view('locais.show', ['pontosturistico' => $pontosturistico, 'donoDoLocal' => $donoDoLocal]);
     }
 }
