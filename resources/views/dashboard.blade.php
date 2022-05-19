@@ -1,15 +1,17 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('layouts.header')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <x-jet-welcome />
-            </div>
-        </div>
-    </div>
-</x-app-layout>
+@section('titulo', 'dashboard')
+
+@section('conteudo')
+
+<div>
+    <h1>Meus Locais</h1>
+</div>
+<div>
+    @if(count($pontosturisticos)>0)
+    @else
+    <p>vc ainda tem tem locais cadastrado. <a href="/locais/criarlocal"></a></p>
+    @endif
+</div>
+
+@endsection

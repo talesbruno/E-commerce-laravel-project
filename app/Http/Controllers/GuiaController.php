@@ -71,4 +71,13 @@ class GuiaController extends Controller
 
         return view('locais.show', ['pontosturistico' => $pontosturistico, 'donoDoLocal' => $donoDoLocal]);
     }
+
+    public function dashboard(){
+
+        $user = auth()->user();
+
+        $pontosturisticos = $user->pontosturisticos;
+
+        return view('locais.dashboard', ['pontosturisticos' => $pontosturisticos]);
+    }
 }
