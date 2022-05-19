@@ -19,6 +19,12 @@ Route::get('/Pontos_Turisticos/listar', [GuiaController::class, 'listarTodosPont
 Route::get('/Cadastrar_Pontos_Turisticos/Adicionar_Novo_Local', [GuiaController::class, 'addNovoLocal'])->middleware('auth');
 Route::get('/Pontos_Turisticos/{id}', [GuiaController::class, 'show']);
 Route::post('/Cadastrar_Novo_Local', [GuiaController::class, 'store']);
+Route::delete('/Pontos_Turisticos/{id}', [GuiaController::class, 'destroy'])->middleware('auth');
+Route::get('/Pontos_Turisticos/edit/{id}', [GuiaController::class, 'edit'])->middleware('auth');
+Route::put('/Pontos_Turisticos/update/{id}', [GuiaController::class, 'update'])->middleware('auth');
 
 Route::get('/dashboard', [GuiaController::class, 'dashboard'])->middleware('auth');
+
+
+
 

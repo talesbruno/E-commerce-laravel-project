@@ -80,4 +80,47 @@ class GuiaController extends Controller
 
         return view('locais.dashboard', ['pontosturisticos' => $pontosturisticos]);
     }
+
+    public function destroy($id){
+
+        Pontosturistico::findOrFail($id)->delete();
+
+        return redirect('/dashboard')->with('msg', 'Local excluido com sucesso!');
+
+    }
+
+    public function edit($id){
+
+       $pontosturistico = Pontosturistico::findOrFail($id);
+        
+        return view('locais.edit',['pontosturistico'=> $pontosturistico]);
+
+    }
+
+    public function update(Request $request){
+
+        $data = $request->all();
+
+        //upload imagem
+        if($request->hasFile('imagem') &&  $request->file('imagem')->isValid()){
+
+            $requestImagem = $request->imagem;
+
+            $extension = $requestImagem->extension();
+
+            $imagemNome = md5($requestImagem->getClientOriginalName().strtotime("now")).".".$extension;
+
+            $requestImagem->move(public_path('img/pontosturisticos'), $imagemNome);
+
+            $data['imagem']= $imagemNome;
+
+
+        }
+
+
+        Pontosturistico::findOrFail($request->id)->update($data);
+         
+        return redirect('/dashboard')->with('msg', 'Local editado com sucesso!');
+ 
+     }
 }

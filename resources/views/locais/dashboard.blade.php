@@ -22,13 +22,20 @@
         <tr>
             <td>{{$loop->index + 1}}</td>
             <td><a href="/Pontos_Turisticos/{{$pontosturistico->id}}">{{$pontosturistico->titulo}}</a></td>
-            <td><a href="#">Editar</a> <a href="#">Deletar</a></td>
+            <td>
+                <a href="/Pontos_Turisticos/edit/{{$pontosturistico->id}}">Editar</a> 
+                <form action="/Pontos_Turisticos/{{$pontosturistico->id}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit">Deletar</button>
+                </form>
+            </td>
         </tr>
         @endforeach
     </tbody>
     </table>
     @else
-    <p>vc ainda tem tem locais cadastrado. <a href="/locais/criarlocal"></a></p>
+    <p>vc ainda tem tem locais cadastrado. <a href="/Cadastrar_Pontos_Turisticos/Adicionar_Novo_Local">Cadastre um local</a></p>
     @endif
 </div>
 
