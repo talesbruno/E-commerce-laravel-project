@@ -14,9 +14,9 @@
         <p>{{ $pontosturistico->descricao }}</p>
         <a href="/Pontos_Turisticos/{{ $pontosturistico->id }}">Ver mais</a>
     </div>
-
+    @endforeach
 </div>
-@endforeach
+
 @if(count($pontosturisticos)==0)
 <p>Não há locais disponíveis</p>
 @endif

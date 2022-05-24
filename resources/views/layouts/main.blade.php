@@ -27,10 +27,10 @@
             </div>
             <ul class="nav-list">
                 <li><a href="/">Inicio</a></li>
-                <li><a href="#">Sobre</a></li>
+                <li><a href="/">Sobre</a></li>
                 <li><a href="/Pontos_Turisticos/listar">Pontos Turísticos</a></li>
                 <li><a href="/">Hospedagem</a></li>
-                <li><a href="#">Comer e Beber</a></li>
+                <li><a href="/">Comer e Beber</a></li>
                 @guest
                 <li><a href="/login">Entrar</a></li>
                 @endguest

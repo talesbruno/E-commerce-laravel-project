@@ -88,6 +88,10 @@ class GuiaController extends Controller
 
     public function destroy($id){
 
+        $user = auth()->user();
+
+        $user->pontosturisticosAsComment()->detach($id);
+
         Pontosturistico::findOrFail($id)->delete();
 
         return redirect('/dashboard')->with('msg', 'Local excluido com sucesso!');

@@ -10,7 +10,7 @@
     </div>
     <div>
         <h5>{{ $pontosturistico->titulo}}</h5>
-        <p>{{ $donoDoLocal['name']}}</p>
+        <p>Criado por: {{ $donoDoLocal['name']}}</p>
         <p>{{ $pontosturistico->descricao }}</p>
     </div>
 </div>
