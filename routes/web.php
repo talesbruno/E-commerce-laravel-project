@@ -25,6 +25,8 @@ Route::put('/Pontos_Turisticos/update/{id}', [GuiaController::class, 'update'])-
 
 Route::get('/dashboard', [GuiaController::class, 'dashboard'])->middleware('auth');
 
+Route::post('/Pontos_Turisticos/join/{id}', [GuiaController::class, 'joinComment'])->middleware('auth');
+
 
 
 

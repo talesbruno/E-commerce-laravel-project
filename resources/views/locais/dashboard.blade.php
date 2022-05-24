@@ -5,6 +5,10 @@
 @section('conteudo')
 
 <div>
+    <a href="/Cadastrar_Pontos_Turisticos/Adicionar_Novo_Local">Cadatrar local</a>
+</div>
+
+<div>
     <h1>Meus Locais</h1>
 </div>
 <div>
@@ -13,7 +17,8 @@
         <thead>
             <tr>
                 <th>#</th>
-                <th>Nome</th>
+                <th>Nome</th>  
+                <th>Comentarios</th>
                 <th>Ações</th>
             </tr>
         </thead>
@@ -22,6 +27,7 @@
         <tr>
             <td>{{$loop->index + 1}}</td>
             <td><a href="/Pontos_Turisticos/{{$pontosturistico->id}}">{{$pontosturistico->titulo}}</a></td>
+            <td>{{ $ab = is_array($pontosturistico->user) ? count($pontosturistico->user) : 0 ;}}</td>
             <td>
                 <a href="/Pontos_Turisticos/edit/{{$pontosturistico->id}}">Editar</a> 
                 <form action="/Pontos_Turisticos/{{$pontosturistico->id}}" method="POST">
@@ -38,5 +44,6 @@
     <p>vc ainda tem tem locais cadastrado. <a href="/Cadastrar_Pontos_Turisticos/Adicionar_Novo_Local">Cadastre um local</a></p>
     @endif
 </div>
+
 
 @endsection

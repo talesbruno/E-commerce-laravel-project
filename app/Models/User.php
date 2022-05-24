@@ -62,4 +62,8 @@ class User extends Authenticatable
     public function pontosturisticos(){
         return $this->hasMany('App\Models\Pontosturistico');
     }
+
+    public function pontosturisticosAsComment(){
+        return $this->belongsToMany('App\Models\Pontosturistico')->withPivot(['comentario']);
+    }
 }

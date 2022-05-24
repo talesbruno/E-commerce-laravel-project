@@ -61,15 +61,17 @@ class GuiaController extends Controller
         
         $pontosturistico->save();
 
-        return redirect('/')->with('msg', 'Local cadastrado com sucesso!');
+        return redirect('/dashboard')->with('msg', 'Local cadastrado com sucesso!');
     }
 
     public function show($id){
         $pontosturistico = Pontosturistico::findOrFail($id);
 
+        $users = User::all();
+
         $donoDoLocal = User::where('id', $pontosturistico->user_id)->first()->toArray();
 
-        return view('locais.show', ['pontosturistico' => $pontosturistico, 'donoDoLocal' => $donoDoLocal]);
+        return view('locais.show', ['pontosturistico' => $pontosturistico, 'donoDoLocal' => $donoDoLocal, 'users' => $users]);
     }
 
     public function dashboard(){
@@ -78,7 +80,10 @@ class GuiaController extends Controller
 
         $pontosturisticos = $user->pontosturisticos;
 
-        return view('locais.dashboard', ['pontosturisticos' => $pontosturisticos]);
+        $pontosturisticosAsComment = $user->pontosturisticosAsComment;
+
+
+        return view('locais.dashboard', ['pontosturisticos' => $pontosturisticos, 'pontosturisticosAsComment'=>$pontosturisticosAsComment]);
     }
 
     public function destroy($id){
@@ -123,4 +128,16 @@ class GuiaController extends Controller
         return redirect('/dashboard')->with('msg', 'Local editado com sucesso!');
  
      }
+
+     public function joinComment(Request $request, $id){
+
+        $user = auth()->user();
+
+        $user->pontosturisticosAsComment()->attach($id,['comentario'=> $request->comentario]);
+
+        $pontosturistico = Pontosturistico::findOrFail($request->id);
+
+        return redirect('/dashboard')->with('msg', 'Obrigado por deixar seu comentario sobre o local ' . $pontosturistico->titulo);
+     }
+     
 }
