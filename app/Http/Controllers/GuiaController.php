@@ -89,8 +89,8 @@ class GuiaController extends Controller
     public function destroy($id){
 
         $user = auth()->user();
-
-        $user->pontosturisticosAsComment()->detach($id);
+        
+        $user->pontosturisticosAsComment()->detach();
 
         Pontosturistico::findOrFail($id)->delete();
 
@@ -137,11 +137,13 @@ class GuiaController extends Controller
 
         $user = auth()->user();
 
-        $user->pontosturisticosAsComment()->attach($id,['comentario'=> $request->comentario]);
+        $user->pontosturisticosAsComment()->attach($id,['comentario'=> $request->comentario, 'estrela'=> $request->estrela]);
 
         $pontosturistico = Pontosturistico::findOrFail($request->id);
 
-        return redirect('/dashboard')->with('msg', 'Obrigado por deixar seu comentario sobre o local ' . $pontosturistico->titulo);
+        return redirect('/Pontos_Turisticos/listar')->with('msg', 'Obrigado por deixar sua avaliação sobre o local ' . $pontosturistico->titulo);
      }
+
+     
      
 }

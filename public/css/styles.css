@@ -81,3 +81,18 @@ main{
   text-decoration: none;
   color: #3EC1D5;
 }
+
+/* avaliaçao estrelas */
+
+.estrela input{
+  display: none;
+}
+
+.estrela label i.fa-star::before{
+  content: '\f005';
+  color: #fc0;
+}
+
+.estrela input:checked ~ label i.fa-star::before{
+  color: #ccc;
+}

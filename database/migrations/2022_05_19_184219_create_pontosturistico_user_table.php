@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('pontosturistico_user', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pontosturistico_id')->constrained();
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('pontosturistico_id')->constrained()->onDelete('cascade');;
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');;
             $table->text('comentario');
+            $table->integer('estrela');
             $table->timestamps();
         });
     }
