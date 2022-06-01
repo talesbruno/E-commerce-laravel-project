@@ -27,7 +27,7 @@
         <tr>
             <td>{{$loop->index + 1}}</td>
             <td><a href="/Pontos_Turisticos/{{$pontosturistico->id}}">{{$pontosturistico->titulo}}</a></td>
-            <td>{{ $ab = is_array($pontosturistico->user) ? count($pontosturistico->user) : 0 ;}}</td>
+            <td>{{ count($pontosturistico->users)}}</td>
             <td>
                 <a href="/Pontos_Turisticos/edit/{{$pontosturistico->id}}">Editar</a> 
                 <form action="/Pontos_Turisticos/{{$pontosturistico->id}}" method="POST">

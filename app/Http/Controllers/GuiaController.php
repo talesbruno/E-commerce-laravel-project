@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\JoinCommentFormRequest;
 use Illuminate\Http\Request;
 use App\Models\Pontosturistico;
 use App\Models\User;
@@ -90,7 +91,7 @@ class GuiaController extends Controller
 
         $user = auth()->user();
         
-        $user->pontosturisticosAsComment()->detach();
+        $user->pontosturisticosAsComment()->detach($id);
 
         Pontosturistico::findOrFail($id)->delete();
 
@@ -133,7 +134,7 @@ class GuiaController extends Controller
  
      }
 
-     public function joinComment(Request $request, $id){
+     public function joinComment(JoinCommentFormRequest $request, $id){
 
         $user = auth()->user();
 

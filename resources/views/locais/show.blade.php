@@ -72,28 +72,34 @@
     <form action="/Pontos_Turisticos/join/{{$pontosturistico->id}}" method="POST">
         @csrf
         <h1>Deixe sua avaliação</h1>
-        
+        @if($errors->any())
+        <ul>
+            @foreach($errors->all() as $error)
+            <li>Selecione a quantidade de estrelas!</li>
+            @endforeach
+        </ul>
+        @endif
         <div class="estrela">
             <label for="">avaliação</label>
-            <input type="radio" id="vazio" name="estrela" value="" checked>
+            <input type="radio" id="vazio" name="estrela" value="" required checked >
 
             <label for="estrela_um"><i class="fa-solid fa-star"></i></label>
-            <input type="radio" id="estrela_um" name="estrela" value="1">
+            <input type="radio" id="estrela_um" name="estrela" value="1" >
 
             <label for="estrela_dois"><i class="fa-solid fa-star"></i></label>
-            <input type="radio" id="estrela_dois" name="estrela" value="2">
+            <input type="radio" id="estrela_dois" name="estrela" value="2" >
 
             <label for="estrela_tres"><i class="fa-solid fa-star"></i></label>
-            <input type="radio" id="estrela_tres" name="estrela" value="3">
+            <input type="radio" id="estrela_tres" name="estrela" value="3" >
 
             <label for="estrela_quantro"><i class="fa-solid fa-star"></i></label>
-            <input type="radio" id="estrela_quantro" name="estrela" value="4">
+            <input type="radio" id="estrela_quantro" name="estrela" value="4" >
 
             <label for="estrela_cinco"><i class="fa-solid fa-star"></i></label>
-            <input type="radio" id="estrela_cinco" name="estrela" value="5">
+            <input type="radio" id="estrela_cinco" name="estrela" value="5" >
         </div>
         <label for="">Comentario:</label>
-        <textarea type="text" name="comentario" id="comentario"></textarea>
+        <textarea type="text" name="comentario" id="comentario" required></textarea>
         <input type="submit">
     </form>
 </div>
