@@ -1,17 +1,26 @@
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   margin: 0;
   padding: 0;
 }
 
-.row {
-  margin: 0;
+.titulo{
+  font-size: 30px;
+  font-weight: bold;
+  color: #003580;
 }
-
-.container {
-  padding: 70px 0;
+.titulos{
+  font-size: 45px;
+  font-weight: bold;
+  color: #003580;
 }
-
+.nopadding {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.row{
+  margin-right: 0;
+}
 p, li {
   color: #444;
   font-size: 14px;
@@ -19,7 +28,8 @@ p, li {
 
 /* Barra de navegação */
 header, .navbar {
-  background-color: #353D41;
+  background-color: #003580;
+  padding-left: 33px;
 }
 
 #nav-container {
@@ -29,12 +39,15 @@ header, .navbar {
 
 #logo {
   width: 75px;
+  
 }
 
 .navbar-brand {
-  padding: 0;
   color: #FFF;
+
 }
+/*barra de pesquisa */
+
 
 .navbar-brand:hover {
   color: #FFF;
@@ -42,7 +55,10 @@ header, .navbar {
 
 #navbar-links a {
   color: #FFF;
+  font-weight: bold;
+ 
 }
+.col-aligncenter{float: none;margin: 0 auto;}
 
 .navbar-expand-lg .navbar-nav .nav-link {
   padding: 1rem .8rem;
@@ -52,14 +68,68 @@ header, .navbar {
   border-bottom: 3px solid #FFF;
 }
 
-main{
-  padding-top: 100px;
+/*input search bar */
+.form-control{
+  border-radius: 0;
+}
+.form-control::placeholder{
+  font-size:13px;
 }
 
-/* Copy */
+#area .btn{
+  background-color: #003580;
+}
+.centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container-fluid{
+  padding:0;
+  margin: 0;
+}
+
+#principal{
+  background-color: #E8C200;
+}
+.col-md-4{
+  padding-left: 33px;
+  
+}
+#area{
+  height: 100vh;
+  padding-top: 100px;
+}
+/* busca */
+.buscando{
+  color: #003580;
+  font-weight: bold;
+}
+#busca{
+  background-color: #EAEAEA;
+}
+.col-sm-3{
+  padding-bottom: 24px;
+}
+#busca .row{
+  padding-top: 50px;
+}
+
+.card-title{
+  font-weight: bold;
+}
+
+.card{
+  border-color: #003580;
+}
+.card .btn{
+  background-color: #003580;
+  color: #FFF;
+}
+
 
 #copy-area {
-  background-color: #353D41;
+  background-color:#003580;
 }
 
 #copy-area .container {
@@ -69,30 +139,8 @@ main{
 
 #copy-area .container p {
   margin-bottom: 0;
-  color: #ffff;
+  color: #FFF;
+  
 }
 
-#copy-area .container a {
-  font-weight: bold;
-  color: #444;
-}
 
-#copy-area .container a:hover {
-  text-decoration: none;
-  color: #3EC1D5;
-}
-
-/* avaliaçao estrelas */
-
-.estrela input{
-  display: none;
-}
-
-.estrela label i.fa-star::before{
-  content: '\f005';
-  color: #fc0;
-}
-
-.estrela input:checked ~ label i.fa-star::before{
-  color: #ccc;
-}

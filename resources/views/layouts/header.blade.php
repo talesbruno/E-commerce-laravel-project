@@ -65,7 +65,7 @@
   </main>
 
   <footer>
-    <div class="bottom">
+    
       <div id="copy-area">
         <div class="container">
           <div class="row">
@@ -75,7 +75,8 @@
           </div>
         </div>
       </div>
-    </div>
+  </footer>
+   
 </body>
 
 </html>

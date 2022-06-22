@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\JoinCommentFormRequest;
+use App\Http\Requests\StoreCommentFormRequest;
 use Illuminate\Http\Request;
 use App\Models\Pontosturistico;
 use App\Models\User;
@@ -35,11 +36,13 @@ class GuiaController extends Controller
         return view('locais.criarlocal');
     }
 
-    public function store(Request $request){
+    public function store(StoreCommentFormRequest $request){
 
         $pontosturistico = new Pontosturistico;
 
         $pontosturistico->titulo = $request->titulo;
+        $pontosturistico->endereco = $request->endereco;
+        $pontosturistico->telefone = $request->telefone;
         $pontosturistico->descricao = $request->descricao;
 
         //upload imagem
