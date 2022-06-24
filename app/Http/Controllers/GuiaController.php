@@ -141,7 +141,7 @@ class GuiaController extends Controller
 
         $user = auth()->user();
 
-        $user->pontosturisticosAsComment()->attach($id,['comentario'=> $request->comentario, 'estrela'=> $request->estrela]);
+        $user->pontosturisticosAsComment()->attach($id,['comentario'=> $request->comentario, 'estrela'=> $request->estrela , 'nome'=> $request->nome]);
 
         $pontosturistico = Pontosturistico::findOrFail($request->id);
 

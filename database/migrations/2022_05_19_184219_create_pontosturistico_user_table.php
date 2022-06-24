@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('pontosturistico_id')->constrained()->onDelete('cascade');;
             $table->foreignId('user_id')->constrained()->onDelete('cascade');;
             $table->text('comentario');
+            $table->text('nome');
             $table->integer('estrela');
             $table->timestamps();
         });

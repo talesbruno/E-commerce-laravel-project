@@ -16,6 +16,6 @@ class Pontosturistico extends Model
     }
 
     public function users(){
-        return $this->belongsToMany('App\Models\User')->withPivot(['comentario','estrela']);
+        return $this->belongsToMany('App\Models\User')->withPivot(['comentario','estrela','nome']);
     }
 }

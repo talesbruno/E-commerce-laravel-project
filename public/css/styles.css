@@ -2,6 +2,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   margin: 0;
   padding: 0;
+  background-color: #EAEAEA;
 }
 
 .titulo{
@@ -96,10 +97,18 @@ header, .navbar {
   padding-left: 33px;
   
 }
-#area{
-  height: 100vh;
-  padding-top: 100px;
+
+/* sobre */
+#sobre-area{
+  background-color: #EAEAEA;
 }
+
+.titulo-sobre{
+  color: #003580;
+  font-weight: bold;
+  text-align: center;
+}
+
 /* busca */
 .buscando{
   color: #003580;
@@ -111,7 +120,7 @@ header, .navbar {
 .col-sm-3{
   padding-bottom: 24px;
 }
-#busca .row{
+#busca .container{
   padding-top: 50px;
 }
 
@@ -127,6 +136,9 @@ header, .navbar {
   color: #FFF;
 }
 
+footer{
+  padding-top: 50px;
+}
 
 #copy-area {
   background-color:#003580;
@@ -143,4 +155,53 @@ header, .navbar {
   
 }
 
+/* avaliaçao estrelas */
+
+.estrela input{
+  display: none;
+}
+
+.estrela label i.fa-star::before{
+  content: '\f005';
+  color: #fc0;
+}
+
+.estrela input:checked ~ label i.fa-star::before{
+  color: #ccc;
+} 
+
+#avaliacao .btn{
+  background-color: #409B00;
+  color: #FFF;
+}
+#avaliacao .form-group{
+  padding-bottom: 10px;
+}
+
+#ponto-turistico-info .titulo-ponto-turistico{
+  text-align: center;
+  color: #003580;
+  font-weight: bold;
+}
+
+#ponto-turistico-info .container{
+  padding-top: 50px;
+}
+
+#ponto-turistico-info .row{
+  padding-top: 50px;
+}
+
+#avaliacao .container{
+  padding-top: 50px;
+}
+
+.feedback-star .span{
+  color: #fc0;
+  font-size: 25px;
+}
+
+.feedback{
+  font-weight: bold;
+}
 

@@ -20,7 +20,7 @@
 <body>
     <header>
         <div class="container" id="nav-container">
-            <nav class="navbar fixed-top navbar-expand-lg ">
+            <nav class="navbar  navbar-expand-lg ">
                 <a class="navbar-brand" href="/">
                     <img id="logo" src="./img/logot.png" alt="">
                 </a>
@@ -33,7 +33,7 @@
                         <a class="nav-item nav-link" href="/">Hospedagem</a>
                         <a class="nav-item nav-link" href="/Pontos_Turisticos/listar">Pontos Turísticos</a>
                         <a class="nav-item nav-link" href="/">Comer e Beber</a>
-                        <a class="nav-item nav-link" href="/">Sobre</a>
+                        <a class="nav-item nav-link" href="#sobre-area">Sobre</a>
                         @guest
                         <a class="nav-item nav-link" href="/login">Entrar</a>
                         @endguest
@@ -63,7 +63,7 @@
                                 <form action="/" method="GET">
                                     <input type="text" id="pesquisa" name="pesquisa" class="form-control " placeholder="O que você está procurando?" />
                             </div>
-                            <button type="submit" class="btn btn-primary">
+                            <button  type="submit" class="btn btn-primary">
                                 </form>
                                 <i class="fas fa-search"></i>
                             </button>
@@ -97,15 +97,27 @@
                         @endforeach
                         @endif
                     </div>
-                </div>
-                @if(count($pontosturisticos)==0 && $pesquisa)
+                    @if(count($pontosturisticos)==0 && $pesquisa)
                 <p>Não foi possível encontrar nenhum local com {{$pesquisa}}! <a href="/Pontos_Turisticos/listar">Ver Todos</a></p>
                 @endif
+                </div>
+                
                 <div>
                     @if(session('msg'))
                     <p>{{ session('msg') }}</p>
                     @endif
                 </div>
+            </div>
+            <div id="sobre-area">
+                <div class="container">
+                    <div class="col-12">
+                        <h3 class="titulo-sobre">Sobre</h3>
+
+                    </div>
+                    <p>Quem visita a página Sobre Nós do seu site pode ter chegado até si através de um motor de pesquisa, ter gostado do conteúdo ou do produto apresentado e estar à procura de saber mais sobre o projeto. Os visitantes podem também ser já utilizadores do serviço que presta ou consumidores do seu produto e vir em busca de mais informação. Pense nos seus públicos e no que lhes poderá interessar, reflita sobre o conhecimento que já adquiriu no contacto com os seus clientes e escreva como se estivesse a conversar frente a frente com o visitante do site. Não pense no que é importante para si enquanto empresa ou projeto. Pense no consumidor e nas suas necessidades. E torne-se útil.Quem visita a página Sobre Nós do seu site pode ter chegado até si através de um motor de pesquisa, ter gostado do conteúdo ou do produto apresentado e estar à procura de saber mais sobre o projeto. Os visitantes podem também ser já utilizadores do serviço que presta ou consumidores do seu produto e vir em busca de mais informação. Pense nos seus públicos e no que lhes poderá interessar, reflita sobre o conhecimento que já adquiriu no contacto com os seus clientes e escreva como se estivesse a conversar frente a frente com o visitante do site. Não pense no que é importante para si enquanto empresa ou projeto. Pense no consumidor e nas suas necessidades. E torne-se útil.Quem visita a página Sobre Nós do seu site pode ter chegado até si através de um motor de pesquisa, ter gostado do conteúdo ou do produto apresentado e estar à procura de saber mais sobre o projeto. Os </p>
+
+                </div>
+
             </div>
             <footer>
                 <div id="copy-area">
