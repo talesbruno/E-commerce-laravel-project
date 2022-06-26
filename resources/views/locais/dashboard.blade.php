@@ -4,45 +4,59 @@
 
 @section('conteudo')
 
-<div>
-    <a href="/Cadastrar_Pontos_Turisticos/Adicionar_Novo_Local">Cadatrar local</a>
+<div id="dashboard">
+    <div class="container">
+        <div class="col-12">
+            <h2 class="meus-locais">Meus locais</h1>
+        </div>
+        @if(count($pontosturisticos)>0)
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Comentarios</th>
+                    <th scope="col">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($pontosturisticos as $pontosturistico)
+                <tr class="table-light" scope="row">
+                    <td>{{$loop->index + 1}}</td>
+                    <td><a href="/Pontos_Turisticos/{{$pontosturistico->id}}">{{$pontosturistico->titulo}}</a></td>
+                    <td>{{ count($pontosturistico->users)}}</td>
+                    <td>
+                        <a href="/Pontos_Turisticos/edit/{{$pontosturistico->id}}" class="btn"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <form action="/Pontos_Turisticos/{{$pontosturistico->id}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn"><i class="fa-solid fa-trash-can"></i></button>
+                        </form>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+        @else
+        <p>vc ainda tem tem locais cadastrado. <a href="/Cadastrar_Pontos_Turisticos/Adicionar_Novo_Local">Cadastre um local</a></p>
+        @endif
+        <div class="cadastrar-novo-local">
+            <a href="/Cadastrar_Pontos_Turisticos/Adicionar_Novo_Local" class="btn">Cadatrar local</a>
+        </div>
+        <div>
+            @if(session('msg'))
+            <p>{{ session('msg') }}</p>
+            @endif
+        </div>
+    </div>
+
+
 </div>
 
+
+
 <div>
-    <h1>Meus Locais</h1>
-</div>
-<div>
-    @if(count($pontosturisticos)>0)
-    <table>
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Nome</th>  
-                <th>Comentarios</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-    <tbody>
-        @foreach($pontosturisticos as $pontosturistico)
-        <tr>
-            <td>{{$loop->index + 1}}</td>
-            <td><a href="/Pontos_Turisticos/{{$pontosturistico->id}}">{{$pontosturistico->titulo}}</a></td>
-            <td>{{ count($pontosturistico->users)}}</td>
-            <td>
-                <a href="/Pontos_Turisticos/edit/{{$pontosturistico->id}}">Editar</a> 
-                <form action="/Pontos_Turisticos/{{$pontosturistico->id}}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit">Deletar</button>
-                </form>
-            </td>
-        </tr>
-        @endforeach
-    </tbody>
-    </table>
-    @else
-    <p>vc ainda tem tem locais cadastrado. <a href="/Cadastrar_Pontos_Turisticos/Adicionar_Novo_Local">Cadastre um local</a></p>
-    @endif
+
 </div>
 
 

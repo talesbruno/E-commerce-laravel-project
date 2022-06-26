@@ -20,8 +20,8 @@
                         <img src="/img/pontosturisticos/{{ $pontosturistico->imagem }}" class="card-img-top" alt="">
                         <div class="card-body">
                             <h5 class="card-title">Informaçoes de contado</h5>
-                            <p class="card-text"> {{ $pontosturistico->endereco }}</p>
-                            <p class="card-text">{{ $pontosturistico->telefone }}</p>
+                            <p class="card-text">Endereço: {{ $pontosturistico->endereco }}</p>
+                            <p class="card-text">Telefone: {{ $pontosturistico->telefone }}</p>
                         </div>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
             @foreach($pontosturistico->users as $user)
 
             <div class="feedback-star">
-            <h3>{{$user->pivot->nome}}</h3>
+                <h3>{{$user->pivot->nome}}</h3>
 
                 @if($user->pivot->estrela == 1)
                 <div class="star-rater">

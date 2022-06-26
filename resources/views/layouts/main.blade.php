@@ -53,26 +53,28 @@
     <main>
         <div class="container-fluid">
             <div id="principal">
-                <div class="row align-items-center">
-                    <div class="col-md-4 ">
-                        <div class="container">
-                        <h1 class="titulo ">Bem-vindo a</h1>
-                        <h1 class="titulos ">PORTEIRINHA</h1>
-                        <div class="input-group ">
-                            <div class="form-outline">
-                                <form action="/" method="GET">
-                                    <input type="text" id="pesquisa" name="pesquisa" class="form-control " placeholder="O que você está procurando?" />
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-md-4 ">
+
+                            <h1 class="titulo ">Bem-vindo a</h1>
+                            <h1 class="titulos ">PORTEIRINHA</h1>
+                            <div class="input-group ">
+                                <div class="form-outline">
+                                    <form action="/" method="GET">
+                                        <input type="text" id="pesquisa" name="pesquisa" class="form-control " placeholder="O que você está procurando?" />
+                                </div>
+                                <button type="submit" class="btn btn-primary">
+                                    </form>
+                                    <i class="fas fa-search"></i>
+                                </button>
                             </div>
-                            <button  type="submit" class="btn btn-primary">
-                                </form>
-                                <i class="fas fa-search"></i>
-                            </button>
+
+
                         </div>
+                        <div class="col-md-8 nopadding">
+                            <img class="img-fluid" src="img/1.png" alt="">
                         </div>
-                        
-                    </div>
-                    <div class="col-md-8 nopadding">
-                        <img class="img-fluid" src="img/1.png" alt="">
                     </div>
                 </div>
             </div>
@@ -89,7 +91,8 @@
                                 <img src="/img/pontosturisticos/{{ $pontosturistico->imagem }}" class="card-img-top" alt="">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $pontosturistico->titulo}}</h5>
-                                    <p class="card-text"></p>
+                                    <p class="card-text">Endereço: {{ $pontosturistico->endereco }}</p>
+                                    <p class="card-text">Telefone: {{ $pontosturistico->telefone }}</p>
                                     <a class="btn" href="/Pontos_Turisticos/{{ $pontosturistico->id }}">Ver mais</a>
                                 </div>
                             </div>
@@ -98,10 +101,10 @@
                         @endif
                     </div>
                     @if(count($pontosturisticos)==0 && $pesquisa)
-                <p>Não foi possível encontrar nenhum local com {{$pesquisa}}! <a href="/Pontos_Turisticos/listar">Ver Todos</a></p>
-                @endif
+                    <p>Não foi possível encontrar nenhum local com {{$pesquisa}}! <a href="/Pontos_Turisticos/listar">Ver Todos</a></p>
+                    @endif
                 </div>
-                
+
                 <div>
                     @if(session('msg'))
                     <p>{{ session('msg') }}</p>

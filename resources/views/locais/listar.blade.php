@@ -4,18 +4,32 @@
 
 @section('conteudo')
 
+<div id="listar-locais">
+    <div class="container">
+        <div class="col-12">
+            <h2 class="titulo-pontos-turisticos">Pontos turisticos</h2>
+        </div>
+        <div class="row">
 
-<h2>Pontos turisticos</h2>
-<div>
-    @foreach($pontosturisticos as $pontosturistico)
-    <div><img src="/img/pontosturisticos/{{ $pontosturistico->imagem }}" alt="" width="50px" height="50px"></div>
-    <div>
-        <h5>{{ $pontosturistico->titulo}}</h5>
-        
-        <a href="/Pontos_Turisticos/{{ $pontosturistico->id }}">Ver mais</a>
+            @foreach($pontosturisticos as $pontosturistico)
+            <div class="col-sm-3">
+                <div class="card">
+                    <img src="/img/pontosturisticos/{{ $pontosturistico->imagem }}" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $pontosturistico->titulo}}</h5>
+                        <p class="card-text">Endereço: {{ $pontosturistico->endereco }}</p>
+                        <p class="card-text">Telefone: {{ $pontosturistico->telefone }}</p>
+                        <a class="btn" href="/Pontos_Turisticos/{{ $pontosturistico->id }}">Ver mais</a>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+
+        </div>
+
     </div>
-    @endforeach
 </div>
+
 
 @if(count($pontosturisticos)==0)
 <p>Não há locais disponíveis</p>

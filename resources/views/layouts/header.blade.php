@@ -22,7 +22,7 @@
   <header>
     <div class="container" id="nav-container">
       <nav class="navbar navbar-expand-lg  navbar-dark">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="/">
         <img id="logo" src="../img/logot.png" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,9 +56,7 @@
   <main>
 
     <div>
-      @if(session('msg'))
-      <p>{{ session('msg') }}</p>
-      @endif
+      
       @yield('conteudo')
     </div>
 

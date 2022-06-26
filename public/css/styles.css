@@ -154,7 +154,7 @@ footer{
   color: #FFF;
   
 }
-
+/* tela ver mais  */
 /* avaliaçao estrelas */
 
 .estrela input{
@@ -204,4 +204,103 @@ footer{
 .feedback{
   font-weight: bold;
 }
+/* tela listar todos locais  */
+
+#listar-locais .container{
+  padding-top: 50px;
+
+}
+
+.titulo-pontos-turisticos{
+  text-align: center;
+  color: #003580;
+  font-weight: bold;
+}
+
+#listar-locais .row{
+  padding-top: 50px;
+
+}
+
+
+/* dashboard*/
+
+#dashboard form{
+  display: inline-block;
+}
+
+.cadastrar-novo-local .btn{
+  background-color: #409B00;
+  color: #FFF;
+  font-weight: bold;
+}
+#dashboard a{
+  background-color: #409B00;
+}
+
+#dashboard button{
+  background-color: #F22C00;
+}
+
+#dashboard {
+  padding-top: 50px;
+}
+
+#dashboard .meus-locais{
+  text-align: center;
+  font-weight: bold;
+  color: #003580;
+}
+
+#dashboard{
+  height: 90vh;
+}
+  
+
+/* Editar local*/
+
+#edit .container{
+  background-color: #FFF;
+}
+
+
+#edit h2{
+  text-align: center;
+  font-weight: bold;
+  color: #003580;
+}
+
+
+#edit {
+  padding-top: 50px;
+  height: 90vh;
+}
+
+#edit .btn{
+  background-color: #409B00;
+  color: #FFF;
+}
+
+/* Cadastrar local*/
+
+#cadastar-local h2{
+  text-align: center;
+  font-weight: bold;
+  color: #003580;
+}
+
+#cadastar-local {
+  padding-top: 50px;
+  height: 90vh;
+}
+
+#cadastar-local .btn{
+  background-color: #409B00;
+  color: #FFF;
+}
+
+#cadastar-local .container{
+  background-color: #FFF;
+}
+
 
