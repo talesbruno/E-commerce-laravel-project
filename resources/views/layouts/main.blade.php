@@ -55,22 +55,21 @@
             <div id="principal">
                 <div class="container-fluid">
                     <div class="row align-items-center">
-                        <div class="col-md-4 ">
-
-                            <h1 class="titulo ">Bem-vindo a</h1>
+                        <div class="col-md-4">
+                            <div class="container">
+                            <h1 class="titulo">Bem-vindo a</h1>
                             <h1 class="titulos ">PORTEIRINHA</h1>
-                            <div class="input-group ">
+                            <div class="input-group">
                                 <div class="form-outline">
                                     <form action="/" method="GET">
                                         <input type="text" id="pesquisa" name="pesquisa" class="form-control " placeholder="O que você está procurando?" />
                                 </div>
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn">
                                     </form>
                                     <i class="fas fa-search"></i>
                                 </button>
                             </div>
-
-
+                            </div>
                         </div>
                         <div class="col-md-8 nopadding">
                             <img class="img-fluid" src="img/1.png" alt="">

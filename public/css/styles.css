@@ -11,9 +11,10 @@ body {
   color: #003580;
 }
 .titulos{
-  font-size: 45px;
+  font-size: 40px;
   font-weight: bold;
   color: #003580;
+  line-height: 40px;
 }
 .nopadding {
   padding: 0 !important;
@@ -59,8 +60,14 @@ header, .navbar {
   font-weight: bold;
  
 }
-.col-aligncenter{float: none;margin: 0 auto;}
+#principal .container{
+  padding-left: 20%;
+}
 
+#principal .btn{
+  background-color: #003580;
+  color: #FFF;
+}
 .navbar-expand-lg .navbar-nav .nav-link {
   padding: 1rem .8rem;
 }
@@ -80,11 +87,7 @@ header, .navbar {
 #area .btn{
   background-color: #003580;
 }
-.centered {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 .container-fluid{
   padding:0;
   margin: 0;
@@ -93,10 +96,7 @@ header, .navbar {
 #principal{
   background-color: #E8C200;
 }
-.col-md-4{
-  padding-left: 33px;
-  
-}
+
 
 /* sobre */
 #sobre-area{
