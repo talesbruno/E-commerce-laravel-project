@@ -10,22 +10,22 @@
             <h2 class="meus-locais">Meus locais</h1>
         </div>
         @if(count($pontosturisticos)>0)
+
         <table class="table">
             <thead>
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Comentarios</th>
-                    <th scope="col">Ações</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($pontosturisticos as $pontosturistico)
                 <tr class="table-light" scope="row">
-                    <td>{{$loop->index + 1}}</td>
+                    <td class="bdr">{{$loop->index + 1}}</td>
                     <td><a href="/Pontos_Turisticos/{{$pontosturistico->id}}">{{$pontosturistico->titulo}}</a></td>
                     <td>{{ count($pontosturistico->users)}}</td>
-                    <td>
+                    <td class="alinhadoDireita">
                         <a href="/Pontos_Turisticos/edit/{{$pontosturistico->id}}" class="btn"><i class="fa-solid fa-pen-to-square"></i></a>
                         <form action="/Pontos_Turisticos/{{$pontosturistico->id}}" method="POST">
                             @csrf
@@ -48,16 +48,16 @@
             <p>{{ session('msg') }}</p>
             @endif
         </div>
+
+
+
+
     </div>
 
 
 </div>
 
 
-
-<div>
-
-</div>
 
 
 @endsection

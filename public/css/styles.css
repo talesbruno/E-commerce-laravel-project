@@ -236,16 +236,24 @@ footer{
 }
 #dashboard a{
   background-color: #409B00;
+  color: #FFF;
 }
 
 #dashboard button{
   background-color: #F22C00;
+  color: #FFF;
 }
 
 #dashboard {
   padding-top: 50px;
 }
-
+.alinhadoDireita {
+  text-align:right;
+  border-radius: 0 10px 10px 0;
+}
+.bdr{
+  border-radius: 10px 0 0 10px;
+}
 #dashboard .meus-locais{
   text-align: center;
   font-weight: bold;
@@ -261,46 +269,84 @@ footer{
 
 #edit .container{
   background-color: #FFF;
+  border-radius: 10px;
 }
+#edit .form-control-file{
+  background-color: #FFF;
+}
+#edit .container .container{
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+#edit .form-group{
+  padding-top: 10px;
 
-
+}
+#edit .form-group input{
+  background-color: #EAEAEA;
+  border-radius: 8px;
+}
+#edit textarea{
+  background-color: #EAEAEA;
+  border-radius: 8px;
+}
 #edit h2{
   text-align: center;
   font-weight: bold;
   color: #003580;
+  padding-bottom: 17px;
 }
 
 
 #edit {
-  padding-top: 50px;
+  padding-top: 25px;
   height: 90vh;
 }
 
-#edit .btn{
+#edit .form-group .btn{
   background-color: #409B00;
   color: #FFF;
 }
 
 /* Cadastrar local*/
 
-#cadastar-local h2{
+#cadastrar-local .container{
+  background-color: #FFF;
+  border-radius: 10px;
+}
+#cadastrar-local .form-control-file{
+  background-color: #FFF;
+}
+#cadastrar-local .container .container{
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+#cadastrar-local .form-group{
+  padding-top: 10px;
+
+}
+#cadastrar-local .form-group input{
+  background-color: #EAEAEA;
+  border-radius: 8px;
+}
+#cadastrar-local textarea{
+  background-color: #EAEAEA;
+  border-radius: 8px;
+}
+#cadastrar-local h2{
   text-align: center;
   font-weight: bold;
   color: #003580;
+  padding-bottom: 17px;
 }
 
-#cadastar-local {
-  padding-top: 50px;
+
+#cadastrar-local {
+  padding-top: 25px;
   height: 90vh;
 }
 
-#cadastar-local .btn{
+#cadastrar-local .form-group .btn{
   background-color: #409B00;
   color: #FFF;
 }
-
-#cadastar-local .container{
-  background-color: #FFF;
-}
-
-
