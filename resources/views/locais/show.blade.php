@@ -33,50 +33,52 @@
             <div class="col-12">
                 <h5>Avaliações:</h5>
             </div>
-            @foreach($pontosturistico->users as $user)
-
-            <div class="feedback-star">
-                <h3>{{$user->pivot->nome}}</h3>
-
-                @if($user->pivot->estrela == 1)
-                <div class="star-rater">
-                    <label for="">Avaliação</label>
-                    <span class="span">&#9733;</span>
+            <div class="col-md-8">
+                @foreach($pontosturistico->users as $user)
+                <div class="feedback-star">
+                    <h4>{{$user->pivot->nome}}</h4>
+                    @if($user->pivot->estrela == 1)
+                    <div class="star-rater">
+                        <label for="">Avaliação</label>
+                        <span class="span">&#9733;</span>
+                    </div>
+                    @elseif($user->pivot->estrela == 2)
+                    <div class="star-rater">
+                        <label for="">Avaliação</label>
+                        <span class="span">&#9733;</span>
+                        <span class="span">&#9733;</span>
+                    </div>
+                    @elseif($user->pivot->estrela == 3)
+                    <div class="star-rater">
+                        <label for="">Avaliação</label>
+                        <span class="span">&#9733;</span>
+                        <span class="span">&#9733;</span>
+                        <span class="span">&#9733;</span>
+                    </div>
+                    @elseif($user->pivot->estrela == 4)
+                    <div class="star-rater">
+                        <label for="">Avaliação</label>
+                        <span class="span">&#9733;</span>
+                        <span class="span">&#9733;</span>
+                        <span class="span">&#9733;</span>
+                        <span class="span">&#9733;</span>
+                    </div>
+                    @else
+                    <div class="star-rater">
+                        <label for="">Avaliação</label>
+                        <span class="span">&#9733;</span>
+                        <span class="span">&#9733;</span>
+                        <span class="span">&#9733;</span>
+                        <span class="span">&#9733;</span>
+                        <span class="span">&#9733;</span>
+                    </div>
+                    @endif
+                    <h5>{{$user->pivot->comentario}}</h5>
                 </div>
-                @elseif($user->pivot->estrela == 2)
-                <div class="star-rater">
-                    <label for="">Avaliação</label>
-                    <span class="span">&#9733;</span>
-                    <span class="span">&#9733;</span>
-                </div>
-                @elseif($user->pivot->estrela == 3)
-                <div class="star-rater">
-                    <label for="">Avaliação</label>
-                    <span class="span">&#9733;</span>
-                    <span class="span">&#9733;</span>
-                    <span class="span">&#9733;</span>
-                </div>
-                @elseif($user->pivot->estrela == 4)
-                <div class="star-rater">
-                    <label for="">Avaliação</label>
-                    <span class="span">&#9733;</span>
-                    <span class="span">&#9733;</span>
-                    <span class="span">&#9733;</span>
-                    <span class="span">&#9733;</span>
-                </div>
-                @else
-                <div class="star-rater">
-                    <label for="">Avaliação</label>
-                    <span class="span">&#9733;</span>
-                    <span class="span">&#9733;</span>
-                    <span class="span">&#9733;</span>
-                    <span class="span">&#9733;</span>
-                    <span class="span">&#9733;</span>
-                </div>
-                @endif
-                <h5>{{$user->pivot->comentario}}</h5>
+                @endforeach
             </div>
-            @endforeach
+        </div>
+        <div class="container">
             <form action="/Pontos_Turisticos/join/{{$pontosturistico->id}}" method="POST">
                 @csrf
                 <h4 class="feedback">Deixe sua avaliação</h4>
@@ -116,17 +118,8 @@
                 </div>
                 <button type="submit" class="btn">Enviar</button>
             </form>
-
         </div>
-
-
-
     </div>
 </div>
-
-
-
-
-
 
 @endsection

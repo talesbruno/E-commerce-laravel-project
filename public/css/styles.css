@@ -192,10 +192,21 @@ footer{
   padding-top: 50px;
 }
 
+#ponto-turistico-info .card-body p{
+  margin-bottom: 5px;
+}
+
 #avaliacao .container{
   padding-top: 50px;
 }
-
+.feedback-star h4{
+  margin: 0;
+}
+.feedback-star {
+  padding-top: 15px;
+  border-bottom: solid;
+  border-width: 1px;
+}
 .feedback-star .span{
   color: #fc0;
   font-size: 25px;
@@ -203,6 +214,14 @@ footer{
 
 .feedback{
   font-weight: bold;
+}
+#avaliacao .form-group input{
+  background-color: #fff;
+  border-radius: 8px;
+}
+#avaliacao textarea{
+  background-color: #fff;
+  border-radius: 8px;
 }
 /* tela listar todos locais  */
 
@@ -218,7 +237,7 @@ footer{
 }
 
 #listar-locais .row{
-  padding-top: 50px;
+  padding-top: 42px;
 
 }
 
