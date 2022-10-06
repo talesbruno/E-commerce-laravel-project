@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pontosturistico_user', function (Blueprint $table) {
+        Schema::create('enderecos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pontosturistico_id')->constrained()->onDelete('cascade');;
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');;
-            $table->text('comentario');
-            $table->text('nome');
-            $table->integer('estrela');
             $table->timestamps();
+            $table->string('rua');
+            $table->string('numero');
+            $table->string('bairro');
+            $table->string('cep');
         });
     }
 
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pontosturistico_user');
+        Schema::dropIfExists('enderecos');
     }
 };

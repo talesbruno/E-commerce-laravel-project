@@ -23,7 +23,7 @@
                 @foreach($pontosturisticos as $pontosturistico)
                 <tr class="table-light" scope="row">
                     <td class="bdr">{{$loop->index + 1}}</td>
-                    <td><a href="/Pontos_Turisticos/{{$pontosturistico->id}}">{{$pontosturistico->titulo}}</a></td>
+                    <td><a class="text-white" href="/Pontos_Turisticos/{{$pontosturistico->id}}">{{$pontosturistico->titulo}}</a></td>
                     <td>{{ count($pontosturistico->users)}}</td>
                     <td class="alinhadoDireita">
                         <a href="/Pontos_Turisticos/edit/{{$pontosturistico->id}}" class="btn"><i class="fa-solid fa-pen-to-square"></i></a>
@@ -38,10 +38,10 @@
             </tbody>
         </table>
         @else
-        <p>vc ainda tem tem locais cadastrado. <a href="/Cadastrar_Pontos_Turisticos/Adicionar_Novo_Local">Cadastre um local</a></p>
+        <p>vc ainda tem tem locais cadastrado. <a href="/Cadastrar_Produto/Adicionar_Novo_Produto">Cadastre um local</a></p>
         @endif
         <div class="cadastrar-novo-local">
-            <a href="/Cadastrar_Pontos_Turisticos/Adicionar_Novo_Local" class="btn">Cadatrar local</a>
+            <a href="/Cadastrar_Produto/Adicionar_Novo_Produto" class="btn">Cadatrar local</a>
         </div>
         <div>
             @if(session('msg'))

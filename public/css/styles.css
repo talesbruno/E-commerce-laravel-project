@@ -247,7 +247,10 @@ footer{
 #dashboard form{
   display: inline-block;
 }
-
+#dashboard link{
+  background-color: #409B00;
+  color: #FFF;
+}
 .cadastrar-novo-local .btn{
   background-color: #409B00;
   color: #FFF;

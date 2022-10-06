@@ -59,11 +59,11 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function pontosturisticos(){
-        return $this->hasMany('App\Models\Pontosturistico');
+    public function produtos(){
+        return $this->hasMany('App\Models\Produto');
     }
 
-    public function pontosturisticosAsComment(){
-        return $this->belongsToMany('App\Models\Pontosturistico')->withPivot(['comentario','estrela','nome']);
+    public function produtosAsComment(){
+        return $this->belongsToMany('App\Models\Produto')->withPivot(['comentario','estrela','nome']);
     }
 }

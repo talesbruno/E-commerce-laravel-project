@@ -12,20 +12,20 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-use App\Http\Controllers\GuiaController;
+use App\Http\Controllers\ProdutoController;
 
-Route::get('/', [GuiaController::class, 'index']);
-Route::get('/Pontos_Turisticos/listar', [GuiaController::class, 'listarTodosPontosTuristicos']);
-Route::get('/Cadastrar_Pontos_Turisticos/Adicionar_Novo_Local', [GuiaController::class, 'addNovoLocal'])->middleware('auth');
-Route::get('/Pontos_Turisticos/{id}', [GuiaController::class, 'show']);
-Route::post('/Cadastrar_Novo_Local', [GuiaController::class, 'store']);
-Route::delete('/Pontos_Turisticos/{id}', [GuiaController::class, 'destroy'])->middleware('auth');
-Route::get('/Pontos_Turisticos/edit/{id}', [GuiaController::class, 'edit'])->middleware('auth');
-Route::put('/Pontos_Turisticos/update/{id}', [GuiaController::class, 'update'])->middleware('auth');
+Route::get('/', [ProdutoController::class, 'index']);
+Route::get('/Produtos/listar', [ProdutoController::class, 'listarTodosprodutos']);
+Route::get('/Cadastrar_Produto/Adicionar_Novo_Produto', [ProdutoController::class, 'addNovoProduto'])->middleware('auth');
+Route::get('/Produtos/{id}', [ProdutoController::class, 'show']);
+Route::post('/Cadastrar_Novo_Local', [ProdutoController::class, 'store']);
+Route::delete('/Produtos/{id}', [ProdutoController::class, 'destroy'])->middleware('auth');
+Route::get('/Produtos/edit/{id}', [ProdutoController::class, 'edit'])->middleware('auth');
+Route::put('/Produtos/update/{id}', [ProdutoController::class, 'update'])->middleware('auth');
 
-Route::get('/dashboard', [GuiaController::class, 'dashboard'])->middleware('auth');
+Route::get('/dashboard', [ProdutoController::class, 'dashboard'])->middleware('auth');
 
-Route::post('/Pontos_Turisticos/join/{id}', [GuiaController::class, 'joinComment'])->middleware('auth');
+Route::post('/Produtos/join/{id}', [ProdutoController::class, 'joinComment'])->middleware('auth');
 
 
 

@@ -32,7 +32,7 @@
           <div class="navbar-nav">
             <a class="nav-item nav-link" href="/">Inicio</a>
             <a class="nav-item nav-link" href="/">Sobre</a>
-            <a class="nav-item nav-link" href="/Pontos_Turisticos/listar">Pontos Turísticos</a>
+            <a class="nav-item nav-link" href="/Produtos/listar">Pontos Turísticos</a>
             <a class="nav-item nav-link" href="/">Hospedagem</a>
             <a class="nav-item nav-link" href="/">Comer e Beber</a>
             @guest
