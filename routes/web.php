@@ -27,6 +27,6 @@ Route::get('/dashboard', [ProdutoController::class, 'dashboard'])->middleware('a
 
 Route::post('/Produtos/join/{id}', [ProdutoController::class, 'joinComment'])->middleware('auth');
 
-
+//teste
 
 
