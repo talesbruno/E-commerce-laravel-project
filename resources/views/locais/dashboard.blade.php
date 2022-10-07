@@ -24,7 +24,7 @@
                 <tr class="table-light" scope="row">
                     <td class="bdr">{{$loop->index + 1}}</td>
                     <td><a class="text-white" href="/Produtos/{{$produto->id}}">{{$produto->nome}}</a></td>
-                    <td>{{ count($produto->users)}}</td>
+                    <td>0</td>
                     <td class="alinhadoDireita">
                         <a href="/Produtos/edit/{{$produto->id}}" class="btn"><i class="fa-solid fa-pen-to-square"></i></a>
                         <form action="/Produtos/{{$produto->id}}" method="POST">

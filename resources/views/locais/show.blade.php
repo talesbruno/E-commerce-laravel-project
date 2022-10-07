@@ -22,7 +22,7 @@
                             <h5 class="card-title">Informaçoes do produto</h5>
                             <p class="card-text">preço: {{ $produto->preco }}</p>
                             <p class="card-text">quantidade: {{ $produto->quantidade }}</p>
-                            <p class="card-text">Postado por: {{ $produto->user->nome }}</p>
+                            <p class="card-text">Postado por: {{ $produto->user->name }}</p>
                             <form action="{{ route('site.addcarrinho')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <input type="hidden" name="id" value="{{ $produto->id}}">

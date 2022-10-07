@@ -62,7 +62,7 @@ class ProdutoController extends Controller
 
         }
         $user = auth()->user();
-        $produto->id_user = $user->id;
+        $produto->user_id = $user->id;
         
         $produto->save();
 
@@ -74,7 +74,7 @@ class ProdutoController extends Controller
 
         $users = User::all();
 
-        $donoDoLocal = User::where('id', $produto->id_user)->first()->toArray();
+        $donoDoLocal = User::where('id', $produto->user_id)->first()->toArray();
 
         return view('locais.show', ['produto' => $produto, 'donoDoLocal' => $donoDoLocal, 'users' => $users]);
     }
@@ -85,10 +85,7 @@ class ProdutoController extends Controller
 
         $produtos = $user->produtos;
 
-        $produtosAsComment = $user->produtosAsComment;
-
-
-        return view('locais.dashboard', ['produtos' => $produtos, 'produtosAsComment'=>$produtosAsComment]);
+        return view('locais.dashboard', ['produtos' => $produtos]);
     }
 
     public function destroy($id){
