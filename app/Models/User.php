@@ -59,11 +59,4 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function produtos(){
-        return $this->hasMany('App\Models\Produto');
-    }
-
-    public function produtosAsComment(){
-        return $this->belongsToMany('App\Models\Produto')->withPivot(['comentario','estrela','nome']);
-    }
 }

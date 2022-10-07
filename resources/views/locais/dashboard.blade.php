@@ -7,9 +7,9 @@
 <div id="dashboard">
     <div class="container">
         <div class="col-12">
-            <h2 class="meus-locais">Meus locais</h1>
+            <h2 class="meus-locais">Meus Produtos</h1>
         </div>
-        @if(count($pontosturisticos)>0)
+        @if(count($produtos)>0)
 
         <table class="table">
             <thead>
@@ -20,14 +20,14 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($pontosturisticos as $pontosturistico)
+                @foreach($produtos as $produto)
                 <tr class="table-light" scope="row">
                     <td class="bdr">{{$loop->index + 1}}</td>
-                    <td><a class="text-white" href="/Pontos_Turisticos/{{$pontosturistico->id}}">{{$pontosturistico->titulo}}</a></td>
-                    <td>{{ count($pontosturistico->users)}}</td>
+                    <td><a class="text-white" href="/Produtos/{{$produto->id}}">{{$produto->nome}}</a></td>
+                    <td>{{ count($produto->users)}}</td>
                     <td class="alinhadoDireita">
-                        <a href="/Pontos_Turisticos/edit/{{$pontosturistico->id}}" class="btn"><i class="fa-solid fa-pen-to-square"></i></a>
-                        <form action="/Pontos_Turisticos/{{$pontosturistico->id}}" method="POST">
+                        <a href="/Produtos/edit/{{$produto->id}}" class="btn"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <form action="/Produtos/{{$produto->id}}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn"><i class="fa-solid fa-trash-can"></i></button>

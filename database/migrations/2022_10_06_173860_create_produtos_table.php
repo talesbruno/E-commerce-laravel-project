@@ -21,8 +21,6 @@ return new class extends Migration
             $table->double('preco', 10, 2);
             $table->integer('quantidade');
             $table->string('imagem');
-            $table->unsignedBigInteger('id_endereco');
-            $table->foreign('id_endereco')->references('id')->on('enderecos')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('id_user');
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');// caso deletar um usuario será deletado todos os produtos deste usuario
         });

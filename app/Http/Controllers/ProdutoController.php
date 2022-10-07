@@ -16,7 +16,7 @@ class ProdutoController extends Controller
         if($pesquisa){
 
             $produtos = Produto::where([
-                ['titulo','like', '%'.$pesquisa.'%']
+                ['nome','like', '%'.$pesquisa.'%']
             ])->get();
 
         } else{
@@ -41,9 +41,9 @@ class ProdutoController extends Controller
 
         $produto = new Produto;
 
-        $produto->titulo = $request->titulo;
-        $produto->endereco = $request->endereco;
-        $produto->telefone = $request->telefone;
+        $produto->nome = $request->nome;
+        $produto->preco = $request->preco;
+        $produto->quantidade = $request->quantidade;
         $produto->descricao = $request->descricao;
 
         //upload imagem
@@ -55,14 +55,14 @@ class ProdutoController extends Controller
 
             $imagemNome = md5($requestImagem->getClientOriginalName().strtotime("now")).".".$extension;
 
-            $requestImagem->move(public_path('img/produtos'), $imagemNome);
+            $requestImagem->move(public_path('img/imgprodutos'), $imagemNome);
 
             $produto->imagem = $imagemNome;
 
 
         }
         $user = auth()->user();
-        $produto->user_id = $user->id;
+        $produto->id_user = $user->id;
         
         $produto->save();
 
@@ -74,7 +74,7 @@ class ProdutoController extends Controller
 
         $users = User::all();
 
-        $donoDoLocal = User::where('id', $produto->user_id)->first()->toArray();
+        $donoDoLocal = User::where('id', $produto->id_user)->first()->toArray();
 
         return view('locais.show', ['produto' => $produto, 'donoDoLocal' => $donoDoLocal, 'users' => $users]);
     }
@@ -146,7 +146,7 @@ class ProdutoController extends Controller
 
         $produto = Produto::findOrFail($request->id);
 
-        return redirect('/Produtos/listar')->with('msg', 'Obrigado por deixar sua avaliação sobre o local ' . $produto->titulo);
+        return redirect('/Produtos/listar')->with('msg', 'Obrigado por deixar sua avaliação sobre o local ' . $produto->nome);
      }
 
      

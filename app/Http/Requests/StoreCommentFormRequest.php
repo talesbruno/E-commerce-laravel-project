@@ -24,9 +24,9 @@ class StoreCommentFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'titulo'=>'required',
-            'endereco'=>'required',
-            'telefone'=>'required',
+            'nome'=>'required',
+            'preco'=>'required',
+            'quantidade'=>'required',
             'descricao'=>'required',
             'imagem'=>'required'
         ];
@@ -34,9 +34,9 @@ class StoreCommentFormRequest extends FormRequest
     public function messages()
     {
         return [
-            'titulo.required'=>'O campo titulo é obrigatorio.',
-            'endereco.required'=>'O campo endereço é obrigatorio.',
-            'telefone.required'=>'O campo telefone é obrigatorio.',
+            'nome.required'=>'O campo nome é obrigatorio.',
+            'preco.required'=>'O campo endereço é obrigatorio.',
+            'quantidade.required'=>'O campo telefone é obrigatorio.',
             'descricao.required'=>'Você deve selecionar uma descricao do seu Local.',
             'imagem.required'=>'Você deve selecionar uma imagem do seu Local.'
         ];

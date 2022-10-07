@@ -1,6 +1,6 @@
 @extends('layouts.header')
 
-@section('titulo', 'Cadastrar Local')
+@section('nome', 'Cadastrar Local')
 
 @section('conteudo')
 
@@ -25,16 +25,16 @@
           <div class="col-md-8">
             <div class="container">
               <div class="form-group">
-                <label for="titulo">Titulo:</label>
-                <input type="text" class="form-control" id="titulo" name="titulo" >
+                <label for="nome">nome:</label>
+                <input type="text" class="form-control" id="nome" name="nome" >
               </div>
               <div class="form-group">
-                <label for="endereco">Endereço:</label>
-                <input type="text" class="form-control" id="endereco" name="endereco" >
+                <label for="preco">Preço:</label>
+                <input type="text" class="form-control" id="preco" name="preco" >
               </div>
               <div class="form-group">
-                <label for="telefone">Telefone:</label>
-                <input type="text" class="form-control" id="telefone" name="telefone" >
+                <label for="quantidade">quantidade:</label>
+                <input type="number" class="form-control" id="quantidade" name="quantidade" >
               </div>
               <div class="form-group">
                 <label for="">descrição:</label>

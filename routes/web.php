@@ -17,6 +17,7 @@ Route::get('/dashboard', [ProdutoController::class, 'dashboard'])->middleware('a
 
 Route::post('/Produtos/join/{id}', [ProdutoController::class, 'joinComment'])->middleware('auth');
 
-Route::get('/carrinho', [CarrinhoController::class, 'carrinhoLista'])->middleware('auth');
+Route::get('/carrinho', [CarrinhoController::class, 'carrinhoLista'])->name('site.carrinho')->middleware('auth');
+Route::post('/carrinho', [CarrinhoController::class, 'adicionaCarrinho'])->name('site.addcarrinho')->middleware('auth');
 
 

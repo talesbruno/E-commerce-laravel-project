@@ -11,14 +11,9 @@ class Produto extends Model
 
     protected $guarded = [];
 
+    
     public function user(){
-        return $this->belongsTo('App\Models\User');
-    }
-    public function user1(){
         return $this->belongsTo(User::class, 'id_user');
     }
 
-    public function users(){
-        return $this->belongsToMany('App\Models\User')->withPivot(['comentario','estrela','nome']);
-    }
 }

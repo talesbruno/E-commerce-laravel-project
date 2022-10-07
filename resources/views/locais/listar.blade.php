@@ -16,10 +16,10 @@
                 <div class="card">
                     <img src="/img/imgprodutos/{{ $produto->imagem }}" class="card-img-top" alt="">
                     <div class="card-body">
-                        <h5 class="card-title">{{ $produto->titulo}}</h5>
-                        <p class="card-text">Endereço: {{ $produto->endereco }}</p>
-                        <p class="card-text">Telefone: {{ $produto->telefone }}</p>
-                        <a class="btn" href="/Pontos_Turisticos/{{ $produto->id }}">Ver mais</a>
+                        <h5 class="card-title">{{ $produto->nome}}</h5>
+                        <p class="card-text">Preço: {{ $produto->preco }}</p>
+                        <p class="card-text">Quantidade: {{ $produto->quantidade }}</p>
+                        <a class="btn" href="/Produtos/{{ $produto->id }}">Ver mais</a>
                     </div>
                 </div>
             </div>
