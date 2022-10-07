@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('numero');
             $table->string('bairro');
             $table->string('cep');
+            $table->unsignedBigInteger('id_user');
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

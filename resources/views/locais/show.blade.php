@@ -1,7 +1,7 @@
 @extends('layouts.header')
 
 
-@section('titulo', $pontosturistico->titulo)
+@section('titulo', $produto->titulo)
 
 @section('conteudo')
 
@@ -9,19 +9,20 @@
     <div id="ponto-turistico-info">
         <div class="container">
             <div class="col-12">
-                <h1 class="titulo-ponto-turistico">{{ $pontosturistico->titulo}}</h1>
+                <h1 class="titulo-ponto-turistico">{{ $produto->titulo}}</h1>
             </div>
             <div class="row">
                 <div class="col-md-8">
-                    <p>{{ $pontosturistico->descricao }}</p>
+                    <p>{{ $produto->descricao }}</p>
                 </div>
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="/img/pontosturisticos/{{ $pontosturistico->imagem }}" class="card-img-top" alt="">
+                        <img src="/img/produtos/{{ $produto->imagem }}" class="card-img-top" alt="">
                         <div class="card-body">
                             <h5 class="card-title">Informaçoes de contado</h5>
-                            <p class="card-text">Endereço: {{ $pontosturistico->endereco }}</p>
-                            <p class="card-text">Telefone: {{ $pontosturistico->telefone }}</p>
+                            <p class="card-text">Endereço: {{ $produto->endereco }}</p>
+                            <p class="card-text">Telefone: {{ $produto->telefone }}</p>
+                            <p class="card-text">Postado por: {{ $produto->user->nome }}</p>
                         </div>
                     </div>
                 </div>
@@ -34,7 +35,7 @@
                 <h5>Avaliações:</h5>
             </div>
             <div class="col-md-8">
-                @foreach($pontosturistico->users as $user)
+                @foreach($produto->users as $user)
                 <div class="feedback-star">
                     <h4>{{$user->pivot->nome}}</h4>
                     @if($user->pivot->estrela == 1)
@@ -79,7 +80,7 @@
             </div>
         </div>
         <div class="container">
-            <form action="/Pontos_Turisticos/join/{{$pontosturistico->id}}" method="POST">
+            <form action="/Pontos_Turisticos/join/{{$produto->id}}" method="POST">
                 @csrf
                 <h4 class="feedback">Deixe sua avaliação</h4>
                 @if($errors->any())

@@ -27,9 +27,10 @@ class ProdutoController extends Controller
 
     public function listarTodosprodutos(){
 
-        $produtos = Produto::all();
+        $produtos = Produto::paginate(6);
         
         return view('locais.listar',['produtos'=> $produtos]);
+       //compact() outra forma de passar variavel para a view
     }
 
     public function addNovoProduto(){
