@@ -34,7 +34,7 @@
             <a class="nav-item nav-link" href="/">Sobre</a>
             <a class="nav-item nav-link" href="/Produtos/listar">Pontos Turísticos</a>
             <a class="nav-item nav-link" href="/">Hospedagem</a>
-            <a class="nav-item nav-link" href="/">Comer e Beber</a>
+            <a class="nav-item nav-link" href="{{ route('site.carrinho')}}">Carrinho</a>
             @guest
             <a class="nav-item nav-link" href="/login">Entrar</a>
             @endguest

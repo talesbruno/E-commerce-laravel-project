@@ -20,13 +20,13 @@
                         <img src="/img/imgprodutos/{{ $produto->imagem }}" class="card-img-top" alt="">
                         <div class="card-body">
                             <h5 class="card-title">Informaçoes do produto</h5>
-                            <p class="card-text">preço: {{ $produto->preco }}</p>
+                            <p class="card-text">R$: {{number_format($produto->preco,2,',','.')}}</p>
                             <p class="card-text">quantidade: {{ $produto->quantidade }}</p>
                             <p class="card-text">Postado por: {{ $produto->user->name }}</p>
                             <form action="{{ route('site.addcarrinho')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <input type="hidden" name="id" value="{{ $produto->id}}">
-                                <input type="hidden" name="nome" value="{{ $produto->nome }}">
+                                <input type="hidden" name="name" value="{{ $produto->nome }}">
                                 <input type="hidden" name="price" value="{{ $produto->preco }}">
                                 <input type="number" name="qnt" value="1">
                                 <input type="hidden" name="img" value="{{ $produto->imagem }}">

@@ -8,6 +8,7 @@ class CarrinhoController extends Controller
 {
     public function carrinhoLista(){
         $itens = \Cart::getContent();//getContent retorna o conteudo do carrinho
+        return view('site.carrinho', compact('itens'));
     }
 
     public function adicionaCarrinho(Request $request){
@@ -20,5 +21,6 @@ class CarrinhoController extends Controller
                 'image' => $request->img
             )
         ]);
+    
     }
 }
