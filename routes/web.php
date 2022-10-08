@@ -19,5 +19,7 @@ Route::post('/Produtos/join/{id}', [ProdutoController::class, 'joinComment'])->m
 
 Route::get('/carrinho', [CarrinhoController::class, 'carrinhoLista'])->name('site.carrinho');
 Route::post('/carrinho', [CarrinhoController::class, 'adicionaCarrinho'])->name('site.addcarrinho');
+Route::post('/remover', [CarrinhoController::class, 'removeCarrinho'])->name('site.removecarrinho');
+Route::post('/atualizar', [CarrinhoController::class, 'atualizaCarrinho'])->name('site.atualizacarrinho');
 
 
