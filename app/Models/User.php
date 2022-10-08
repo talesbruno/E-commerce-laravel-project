@@ -63,6 +63,10 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Produto');
     }
 
+    public function enderecos(){
+        return $this->hasMany('App\Models\Endereco');
+    }
+
    
 
 }

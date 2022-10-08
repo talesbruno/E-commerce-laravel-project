@@ -18,13 +18,16 @@
   </div>
   <div class="container">
     <div class="container">
-
+      @foreach($enderecos as $endereco)
         <div class="card green">
             <div class="card-body">
-              <h5 class="card-title">Endereco: </h5>     
-              <p class="card-text"></p>      
+              <h5 class="card-title">Endereco: {{$endereco->rua}}</h5>     
+              <p class="card-text">Numero:{{$endereco->numero}}</p>   
+              <p class="card-text">bairro:{{$endereco->bairro}}</p>  
+              <p class="card-text">cep:{{$endereco->cep}}</p>     
             </div>
           </div>
+          @endforeach
           <a href="{{route('site.criarendereco')}}">Cadastrar endereço</a>
 
     </div>

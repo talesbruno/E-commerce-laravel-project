@@ -44,7 +44,7 @@ class EnderecoController extends Controller
         $endereco->cep = $request->cep;
 
         $user = auth()->user();
-        $endereco->id_user = $user->id;
+        $endereco->user_id = $user->id;
         
         $endereco->save();
 
