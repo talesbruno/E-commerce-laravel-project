@@ -21,12 +21,12 @@ class CarrinhoController extends Controller
                 'image' => $request->img
             )
         ]);
-        return redirect()->route('site.carrinho')->with('sucesso','Produto adicionado no carrinho com sucesso!');
+        return redirect()->route('site.carrinho')->with('sucesso','Produto adicionado com sucesso!');
     }
 
     public function removecarrinho(Request $request){
         \Cart::remove($request->id);
-        return redirect()->route('site.carrinho')->with('sucesso','Produto removido no carrinho com sucesso!');
+        return redirect()->route('site.carrinho')->with('sucesso','Produto removido com sucesso!');
     }
 
     public function atualizaCarrinho(Request $request){
@@ -36,7 +36,7 @@ class CarrinhoController extends Controller
                 'value' =>abs($request->quantity) 
             ]
         ]);
-        return redirect()->route('site.carrinho')->with('sucesso','Produto atualizado no carrinho com sucesso!');
+        return redirect()->route('site.carrinho')->with('sucesso','Produto atualizado com sucesso!');
     }
     public function limparCarrinho(){
         \Cart::clear();

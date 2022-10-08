@@ -92,8 +92,6 @@ class ProdutoController extends Controller
 
         $user = auth()->user();
         
-        $user->produtosAsComment()->detach($id);
-
         Produto::findOrFail($id)->delete();
 
         return redirect('/dashboard')->with('msg', 'Local excluido com sucesso!');

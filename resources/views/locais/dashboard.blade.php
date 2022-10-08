@@ -8,6 +8,7 @@
     <div class="container">
         <div class="col-12">
             <h2 class="meus-locais">Meus Produtos</h1>
+                <a href="{{route('site.meuendereco')}}">Endereço</a>
         </div>
         @if(count($produtos)>0)
 
@@ -41,7 +42,7 @@
         <p>vc ainda tem tem locais cadastrado. <a href="/Cadastrar_Produto/Adicionar_Novo_Produto">Cadastre um local</a></p>
         @endif
         <div class="cadastrar-novo-local">
-            <a href="/Cadastrar_Produto/Adicionar_Novo_Produto" class="btn">Cadatrar local</a>
+            <a href="/Cadastrar_Produto/Adicionar_Novo_Produto" class="btn">Cadatrar produto</a>
         </div>
         <div>
             @if(session('msg'))

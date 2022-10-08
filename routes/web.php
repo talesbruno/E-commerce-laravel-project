@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\CarrinhoController;
+use App\Http\Controllers\EnderecoController;
 
 Route::get('/', [ProdutoController::class, 'index']);
 Route::get('/Produtos/listar', [ProdutoController::class, 'listarTodosprodutos'])->name('locais.listar');
@@ -22,5 +23,10 @@ Route::post('/carrinho', [CarrinhoController::class, 'adicionaCarrinho'])->name(
 Route::post('/remover', [CarrinhoController::class, 'removeCarrinho'])->name('site.removecarrinho');
 Route::post('/atualizar', [CarrinhoController::class, 'atualizaCarrinho'])->name('site.atualizacarrinho');
 Route::get('/limpar', [CarrinhoController::class, 'limparCarrinho'])->name('site.limparcarrinho');
+
+Route::get('/Endereco', [EnderecoController::class, 'show'])->name('site.meuendereco');
+Route::get('/Cadastrar/Endereco', [EnderecoController::class, 'create'])->name('site.criarendereco');
+Route::post('/Cadastrar/Salvar', [EnderecoController::class, 'store'])->name('site.addendereco');
+
 
 

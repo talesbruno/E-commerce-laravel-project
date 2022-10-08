@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Endereco;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class EnderecoController extends Controller
 {
@@ -24,7 +25,7 @@ class EnderecoController extends Controller
      */
     public function create()
     {
-        //
+        return view('site.criarendereco');
     }
 
     /**
@@ -35,7 +36,19 @@ class EnderecoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $endereco = new Endereco;
+
+        $endereco->rua = $request->rua;
+        $endereco->numero = $request->numero;
+        $endereco->bairro = $request->bairro;
+        $endereco->cep = $request->cep;
+
+        $user = auth()->user();
+        $endereco->id_user = $user->id;
+        
+        $endereco->save();
+
+        return redirect('/Endereco');
     }
 
     /**
@@ -44,9 +57,13 @@ class EnderecoController extends Controller
      * @param  \App\Models\Endereco  $endereco
      * @return \Illuminate\Http\Response
      */
-    public function show(Endereco $endereco)
+    public function show()
     {
-        //
+        $user = auth()->user();
+
+        $enderecos = $user->enderecos;
+
+        return view('site.meuendereco', ['enderecos' => $enderecos]);
     }
 
     /**
