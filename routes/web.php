@@ -5,7 +5,7 @@ use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\CarrinhoController;
 
 Route::get('/', [ProdutoController::class, 'index']);
-Route::get('/Produtos/listar', [ProdutoController::class, 'listarTodosprodutos']);
+Route::get('/Produtos/listar', [ProdutoController::class, 'listarTodosprodutos'])->name('locais.listar');
 Route::get('/Cadastrar_Produto/Adicionar_Novo_Produto', [ProdutoController::class, 'addNovoProduto'])->middleware('auth');
 Route::get('/Produtos/{id}', [ProdutoController::class, 'show']);
 Route::post('/Cadastrar_Novo_Local', [ProdutoController::class, 'store']);
@@ -21,5 +21,6 @@ Route::get('/carrinho', [CarrinhoController::class, 'carrinhoLista'])->name('sit
 Route::post('/carrinho', [CarrinhoController::class, 'adicionaCarrinho'])->name('site.addcarrinho');
 Route::post('/remover', [CarrinhoController::class, 'removeCarrinho'])->name('site.removecarrinho');
 Route::post('/atualizar', [CarrinhoController::class, 'atualizaCarrinho'])->name('site.atualizacarrinho');
+Route::get('/limpar', [CarrinhoController::class, 'limparCarrinho'])->name('site.limparcarrinho');
 
 

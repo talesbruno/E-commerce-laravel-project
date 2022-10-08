@@ -26,11 +26,14 @@
             @endforeach
 
         </div>
+        <div class="py-4">
+            {{$produtos->appends([
+                'search' => request()->get('search', '')
+            ])->links()}}
+        </div>
 
     </div>
-    <div class="row">
-        {{$produtos->links('custom.pagination')}}
-    </div>
+    
 </div>
 
 
