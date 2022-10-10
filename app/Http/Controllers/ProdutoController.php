@@ -29,12 +29,12 @@ class ProdutoController extends Controller
 
         $produtos = Produto::paginate(6);
         
-        return view('locais.listar',['produtos'=> $produtos]);
+        return view('produtos.listar',['produtos'=> $produtos]);
        //compact() outra forma de passar variavel para a view
     }
 
     public function addNovoProduto(){
-        return view('locais.criarlocal');
+        return view('produtos.criarlocal');
     }
 
     public function store(StoreCommentFormRequest $request){
@@ -76,7 +76,7 @@ class ProdutoController extends Controller
 
         $donoDoLocal = User::where('id', $produto->user_id)->first()->toArray();
 
-        return view('locais.show', ['produto' => $produto, 'donoDoLocal' => $donoDoLocal, 'users' => $users]);
+        return view('produtos.show', ['produto' => $produto, 'donoDoLocal' => $donoDoLocal, 'users' => $users]);
     }
 
     public function dashboard(){
@@ -85,7 +85,7 @@ class ProdutoController extends Controller
 
         $produtos = $user->produtos;
 
-        return view('locais.dashboard', ['produtos' => $produtos]);
+        return view('produtos.dashboard', ['produtos' => $produtos]);
     }
 
     public function destroy($id){
@@ -102,7 +102,7 @@ class ProdutoController extends Controller
 
        $produto = Produto::findOrFail($id);
         
-        return view('locais.edit',['produto'=> $produto]);
+        return view('produtos.edit',['produto'=> $produto]);
 
     }
 

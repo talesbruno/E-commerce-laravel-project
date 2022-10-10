@@ -8,6 +8,13 @@ use App\Models\User;
 
 class EnderecoController extends Controller
 {
+    //construtor
+    protected $user;
+    protected $enderecos;
+    public function __construct(User $user, Endereco $enderecos){
+        $this->user = $user;
+        $this->enderecos = $enderecos;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -25,7 +32,7 @@ class EnderecoController extends Controller
      */
     public function create()
     {
-        return view('site.criarendereco');
+        return view('enderecos.createendereco');
     }
 
     /**
@@ -36,19 +43,21 @@ class EnderecoController extends Controller
      */
     public function store(Request $request)
     {
-        $endereco = new Endereco;
+        $enderecos = new Endereco;
 
-        $endereco->rua = $request->rua;
-        $endereco->numero = $request->numero;
-        $endereco->bairro = $request->bairro;
-        $endereco->cep = $request->cep;
+        $enderecos->rua = $request->rua;
+        $enderecos->numero = $request->numero;
+        $enderecos->bairro = $request->bairro;
+        $enderecos->cep = $request->cep;
 
         $user = auth()->user();
-        $endereco->user_id = $user->id;
+        $enderecos->user_id = $user->id;
         
-        $endereco->save();
+        //$user->enderecos()->create($request->all()); // forma mais produtiva de cadastrar
+        
+        $enderecos->save();
 
-        return redirect('/Endereco');
+        return redirect()->route('enderecos.meuendereco');
     }
 
     /**
@@ -63,7 +72,7 @@ class EnderecoController extends Controller
 
         $enderecos = $user->enderecos;
 
-        return view('site.meuendereco', ['enderecos' => $enderecos]);
+        return view('enderecos.meuendereco', ['enderecos' => $enderecos]);
     }
 
     /**

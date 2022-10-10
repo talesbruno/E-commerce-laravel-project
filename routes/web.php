@@ -6,7 +6,7 @@ use App\Http\Controllers\CarrinhoController;
 use App\Http\Controllers\EnderecoController;
 
 Route::get('/', [ProdutoController::class, 'index']);
-Route::get('/Produtos/listar', [ProdutoController::class, 'listarTodosprodutos'])->name('locais.listar');
+Route::get('/Produtos/listar', [ProdutoController::class, 'listarTodosprodutos'])->name('produtos.listar');
 Route::get('/Cadastrar_Produto/Adicionar_Novo_Produto', [ProdutoController::class, 'addNovoProduto'])->middleware('auth');
 Route::get('/Produtos/{id}', [ProdutoController::class, 'show']);
 Route::post('/Cadastrar_Novo_Local', [ProdutoController::class, 'store']);
@@ -18,15 +18,15 @@ Route::get('/dashboard', [ProdutoController::class, 'dashboard'])->middleware('a
 
 Route::post('/Produtos/join/{id}', [ProdutoController::class, 'joinComment'])->middleware('auth');
 
-Route::get('/carrinho', [CarrinhoController::class, 'carrinhoLista'])->name('site.carrinho');
-Route::post('/carrinho', [CarrinhoController::class, 'adicionaCarrinho'])->name('site.addcarrinho');
-Route::post('/remover', [CarrinhoController::class, 'removeCarrinho'])->name('site.removecarrinho');
-Route::post('/atualizar', [CarrinhoController::class, 'atualizaCarrinho'])->name('site.atualizacarrinho');
-Route::get('/limpar', [CarrinhoController::class, 'limparCarrinho'])->name('site.limparcarrinho');
+Route::get('/carrinho', [CarrinhoController::class, 'carrinhoLista'])->name('carrinho.carrinho');
+Route::post('/carrinho', [CarrinhoController::class, 'adicionaCarrinho'])->name('carrinho.addcarrinho');
+Route::post('/remover', [CarrinhoController::class, 'removeCarrinho'])->name('carrinho.removecarrinho');
+Route::post('/atualizar', [CarrinhoController::class, 'atualizaCarrinho'])->name('carrinho.atualizacarrinho');
+Route::get('/limpar', [CarrinhoController::class, 'limparCarrinho'])->name('carrinho.limparcarrinho');
 
-Route::get('/Endereco', [EnderecoController::class, 'show'])->name('site.meuendereco')->middleware('auth');
-Route::get('/Cadastrar/Endereco', [EnderecoController::class, 'create'])->name('site.criarendereco')->middleware('auth');
-Route::post('/Cadastrar/Salvar', [EnderecoController::class, 'store'])->name('site.addendereco')->middleware('auth');
+Route::get('/Endereco', [EnderecoController::class, 'show'])->name('enderecos.meuendereco')->middleware('auth');
+Route::get('/Cadastrar/Endereco', [EnderecoController::class, 'create'])->name('enderecos.createendereco')->middleware('auth');
+Route::post('/Cadastrar/Salvar', [EnderecoController::class, 'store'])->name('enderecos.addendereco')->middleware('auth');
 
 
 

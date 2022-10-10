@@ -30,15 +30,14 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
                     <div class="navbar-nav">
                         <a class="nav-item nav-link" href="/">Inicio</a>
-                        <a class="nav-item nav-link" href="/">Hospedagem</a>
-                        <a class="nav-item nav-link" href="/Produtos/listar">Pontos Turísticos</a>
-                        <a class="nav-item nav-link" href="{{ route('site.carrinho')}}">Carrinho <span class="badge badge-danger">{{\Cart::getContent()->count()}}</span></a>
+                        <a class="nav-item nav-link" href="/Produtos/listar">Queijos</a>
+                        <a class="nav-item nav-link" href="{{ route('carrinho.carrinho')}}"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="badge badge-danger">{{\Cart::getContent()->count()}}</span></a>
                         <a class="nav-item nav-link" href="#sobre-area">Sobre</a>
                         @guest
                         <a class="nav-item nav-link" href="/login">Entrar</a>
                         @endguest
                         @auth
-                        <a class="nav-item nav-link" href="/dashboard">Meus Locais</a>
+                        <a class="nav-item nav-link" href="/dashboard">Dashboard</a>
                         <form action="/logout" method="POST">
                             @csrf
                             <a class="nav-item nav-link" href="/logout" onclick="event.preventDefault();
@@ -116,7 +115,7 @@
                         <h3 class="titulo-sobre">Sobre</h3>
 
                     </div>
-                    <p>Quem visita a página Sobre Nós do seu site pode ter chegado até si através de um motor de pesquisa, ter gostado do conteúdo ou do produto apresentado e estar à procura de saber mais sobre o projeto. Os visitantes podem também ser já utilizadores do serviço que presta ou consumidores do seu produto e vir em busca de mais informação. Pense nos seus públicos e no que lhes poderá interessar, reflita sobre o conhecimento que já adquiriu no contacto com os seus clientes e escreva como se estivesse a conversar frente a frente com o visitante do site. Não pense no que é importante para si enquanto empresa ou projeto. Pense no consumidor e nas suas necessidades. E torne-se útil.Quem visita a página Sobre Nós do seu site pode ter chegado até si através de um motor de pesquisa, ter gostado do conteúdo ou do produto apresentado e estar à procura de saber mais sobre o projeto. Os visitantes podem também ser já utilizadores do serviço que presta ou consumidores do seu produto e vir em busca de mais informação. Pense nos seus públicos e no que lhes poderá interessar, reflita sobre o conhecimento que já adquiriu no contacto com os seus clientes e escreva como se estivesse a conversar frente a frente com o visitante do site. Não pense no que é importante para si enquanto empresa ou projeto. Pense no consumidor e nas suas necessidades. E torne-se útil.Quem visita a página Sobre Nós do seu site pode ter chegado até si através de um motor de pesquisa, ter gostado do conteúdo ou do produto apresentado e estar à procura de saber mais sobre o projeto. Os </p>
+                    <p>Quem visita a página Sobre Nós do seu site pode ter chegado até si através de um motor de pesquisa, ter gostado do conteúdo ou do produto apresentado e estar à procura de saber mais sobre o projeto. Os visitantes podem também ser já utilizadores do serviço que presta ou consumidores do seu produto e vir em busca de mais informação. Pense nos seus públicos e no que lhes poderá interessar, reflita sobre o conhecimento que já adquiriu no contacto com os seus clientes e escreva como se estivesse a conversar frente a frente com o visitante do carrinho. Não pense no que é importante para si enquanto empresa ou projeto. Pense no consumidor e nas suas necessidades. E torne-se útil.Quem visita a página Sobre Nós do seu site pode ter chegado até si através de um motor de pesquisa, ter gostado do conteúdo ou do produto apresentado e estar à procura de saber mais sobre o projeto. Os visitantes podem também ser já utilizadores do serviço que presta ou consumidores do seu produto e vir em busca de mais informação. Pense nos seus públicos e no que lhes poderá interessar, reflita sobre o conhecimento que já adquiriu no contacto com os seus clientes e escreva como se estivesse a conversar frente a frente com o visitante do carrinho. Não pense no que é importante para si enquanto empresa ou projeto. Pense no consumidor e nas suas necessidades. E torne-se útil.Quem visita a página Sobre Nós do seu site pode ter chegado até si através de um motor de pesquisa, ter gostado do conteúdo ou do produto apresentado e estar à procura de saber mais sobre o projeto. Os </p>
 
                 </div>
 
