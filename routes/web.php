@@ -18,11 +18,12 @@ Route::get('/dashboard', [ProdutoController::class, 'dashboard'])->middleware('a
 
 Route::post('/Produtos/join/{id}', [ProdutoController::class, 'joinComment'])->middleware('auth');
 
-Route::get('/carrinho', [CarrinhoController::class, 'carrinhoLista'])->name('carrinho.carrinho');
-Route::post('/carrinho', [CarrinhoController::class, 'adicionaCarrinho'])->name('carrinho.addcarrinho');
-Route::post('/remover', [CarrinhoController::class, 'removeCarrinho'])->name('carrinho.removecarrinho');
-Route::post('/atualizar', [CarrinhoController::class, 'atualizaCarrinho'])->name('carrinho.atualizacarrinho');
-Route::get('/limpar', [CarrinhoController::class, 'limparCarrinho'])->name('carrinho.limparcarrinho');
+Route::get('/Carrinho', [CarrinhoController::class, 'carrinhoLista'])->name('carrinho.carrinho')->middleware('auth');
+Route::post('/Carrinho', [CarrinhoController::class, 'adicionaCarrinho'])->name('carrinho.addcarrinho')->middleware('auth');
+Route::post('/Carrinho/remover', [CarrinhoController::class, 'removeCarrinho'])->name('carrinho.removecarrinho')->middleware('auth');
+Route::post('/Carrinho/atualizar', [CarrinhoController::class, 'atualizaCarrinho'])->name('carrinho.atualizacarrinho')->middleware('auth');
+Route::get('/Carrinho/limpar', [CarrinhoController::class, 'limparCarrinho'])->name('carrinho.limparcarrinho')->middleware('auth');
+Route::get('/Carrinho/Pagar', [CarrinhoController::class, 'finalizarPedido'])->name('carrinho.finalizarPedido')->middleware('auth');
 
 Route::get('/Endereco', [EnderecoController::class, 'show'])->name('enderecos.meuendereco')->middleware('auth');
 Route::get('/Cadastrar/Endereco', [EnderecoController::class, 'create'])->name('enderecos.createendereco')->middleware('auth');

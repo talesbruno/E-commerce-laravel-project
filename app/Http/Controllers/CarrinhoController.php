@@ -42,4 +42,8 @@ class CarrinhoController extends Controller
         \Cart::clear();
         return redirect()->route('carrinho.carrinho')->with('aviso','Carrinho vazio!.');
     }
+
+    public function finalizarPedido(){
+        return view('carrinho.pagar');
+    }
 }

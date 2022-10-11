@@ -3,7 +3,7 @@
 @section('conteudo')
 
 <div id="listar-locais">
-    <div class="row container ">
+    <div class="container ">
       
       @if ($mensagem = Session::get('sucesso'))    
       <div class="card green">
@@ -74,7 +74,7 @@
             <div class="container center">
                 <a class="btn btn-primary" href="{{route('produtos.listar')}}">continuar comprando <i class="fa-solid fa-arrow-left"></i></a>
                 <a class="btn btn-danger" href="{{route('carrinho.limparcarrinho')}}">limpar carrinho <i class="fa-solid fa-xmark"></i></a>
-                <button class="btn btn-success">finalizar pedido <i class="fa-solid fa-check"></i></button>
+                <a class="btn btn-success" href="{{route('carrinho.finalizarPedido')}}" >finalizar pedido <i class="fa-solid fa-check"></i></a>
             </div>
 
         </div>

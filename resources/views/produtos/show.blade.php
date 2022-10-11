@@ -21,7 +21,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Informaçoes do produto</h5>
                             <p class="card-text">R$: {{number_format($produto->preco,2,',','.')}}</p>
-                            <p class="card-text">quantidade: {{ $produto->quantidade }}</p>
+                            <p class="card-text">quantidade: {{ $produto->quantidade }} itens disponíveis</p>
                             <p class="card-text">Postado por: {{ $produto->user->name }}</p>
                             <form action="{{ route('carrinho.addcarrinho')}}" method="POST" enctype="multipart/form-data">
                                 @csrf

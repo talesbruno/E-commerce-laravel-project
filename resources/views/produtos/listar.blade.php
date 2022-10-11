@@ -17,8 +17,8 @@
                     <img src="/img/imgprodutos/{{ $produto->imagem }}" class="card-img-top" alt="">
                     <div class="card-body">
                         <h5 class="card-title">{{ $produto->nome}}</h5>
-                        <p class="card-text">Preço: {{ $produto->preco }}</p>
-                        <p class="card-text">Quantidade: {{ $produto->quantidade }}</p>
+                        <p class="card-text">R$: {{number_format($produto->preco,2,',','.')}}</p>
+                        <p class="card-text">quantidade: {{ $produto->quantidade }} itens disponíveis</p>
                         <a class="btn" href="/Produtos/{{ $produto->id }}">Ver mais</a>
                     </div>
                 </div>
