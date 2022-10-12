@@ -67,6 +67,10 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Endereco');
     }
 
+    public function pagseguros(){
+        return $this->hasMany('App\Models\Pagseguro');
+    }
+
    
 
 }
