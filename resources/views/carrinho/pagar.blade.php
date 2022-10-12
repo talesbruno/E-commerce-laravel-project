@@ -1,6 +1,30 @@
 @extends('layouts.header')
 @section('titulo', 'Triport')
 @section('conteudo')
+<script type="text/javascript" src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+  function carregar(){
+    PagSeguroDirectPayment.setSessionId('{{ $sessionID }}')
+  }
+  $(function(){
+    carregar();
+
+    $(".cartaodecredito").on('blur', function(){
+      PagSeguroDirectPayment.onSenderHasReady(function(response){
+        if(response.status == 'error'){
+          console.log(response.message)
+          return false
+        }
+
+        var hash = response.senderHash
+        $(".hashseller").val(hash)
+      })
+    })
+  })
+</script>
+
+
 
 <div id="listar-locais">
     <div class="container">
@@ -9,6 +33,7 @@
             <div class="row">
               <div class="col-md-8">
                 <div class="container">
+                  <input type="text" name="hashseller">
                   <div class="form-group">
                     <label for="cartaodecredito">cartão de credito:</label>
                     <input type="text" class="form-control" id="cartaodecredito" name="cartaodecredito" >
