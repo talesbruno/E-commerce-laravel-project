@@ -53,7 +53,8 @@
 
 
   <main>
-
+    <script src="{{ asset('js/app.js') }}"></script>
+    @yield('scriptjs')
     <div>
       
       @yield('conteudo')

@@ -12,7 +12,7 @@
     carregar();
 
     $(".cartaodecredito").on('blur', function(){
-      PagSeguroDirectPayment.onSenderHasReady(function(response){
+      PagSeguroDirectPayment.onSenderHashReady(function(response){
         if(response.status == 'error'){
           console.log(response.message)
           return false
@@ -21,6 +21,7 @@
         var hash = response.senderHash
         $(".hashseller").val(hash)
       })
+      
       let cartaldecredito = $(this).val()
       $(".bandeira").val("")
       if(cartaldecredito.length > 6){
