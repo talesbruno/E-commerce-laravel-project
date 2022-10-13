@@ -60,6 +60,7 @@ class CarrinhoController extends Controller
     }
 
     public function finalizarPedido(){
+        $itens = \Cart::getContent();
 
         $sessionCode = \PagSeguro\Services\Session::create(
             $this->getCredential()
@@ -67,6 +68,6 @@ class CarrinhoController extends Controller
         $sessionID = $sessionCode->getResult();
 
 
-        return view('carrinho.pagar', compact('sessionID'));
+        return view('carrinho.pagar', compact('sessionID', 'itens'));
     }
 }
