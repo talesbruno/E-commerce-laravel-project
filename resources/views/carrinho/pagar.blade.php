@@ -20,33 +20,35 @@
 
         var hash = response.senderHash
         $(".hashseller").val(hash)
-      })
-      
+      })  
+
       let cartaldecredito = $(this).val()
       $(".bandeira").val("")
       if(cartaldecredito.length > 6){
-        let prefixocartao = cartaldecredito.substr(0,6)
+        let prefixocartao = cartaldecredito.substr(0, 6)
         PagSeguroDirectPayment.getBrand({
           cardBin : prefixocartao,
           success : function(response){
             $(".bandeira").val(response.brand.name)
           },
           error : function(response){
-            alert("numero do cartao invalido")
-           
+            alert("numero do cartao invalido")        
           }
         })
       }
     })
-      $(".parcelas").on('blur', function(){
+
+    $(".nparcelas").on('blur', function(){
           var bandeira = $(".bandeira").val();
           var totalParcelas = $(this).val();
+
           if(bandeira == ""){
             alert("preencha numero do cartao valido")
             return ;
           }
+
           PagSeguroDirectPayment.getInstallments({
-            amount : $(".valortotal").val(),
+            amount : $(".totalfinal").val(),
             maxIntallmentNoInteres : 2,
             brad : bandeira,
             success : function(response){
@@ -64,8 +66,41 @@
               $(".totalapagar").val(totalapagar)
             }
           })
+    })
+
+    $(".pagar").on("click", function(){
+      var numerocartao = $(".cartaodecredito").val()
+      var iniciocartao = numerocartao.substr(0,6)
+      var cvv = $(".cvv").val()
+      var anoexp = $(".anoexp").val()
+      var mesdeexpiracao = $(".mesdeexpiracao").val()
+      var hashseller = $(".hashseller").val()
+      var bandeira = $(".bandeira").val()
+
+      PagSeguroDirectPayment.createCardToken({
+        cardNumber : numerocartao,
+        brand : bandeira,
+        cvv : cvv,
+        expirationMonth : mesdeexpiracao,
+        expiraionYear : anoexp,
+        success : function(response){
+          alert("token recuperado com sucesso")
+          $.post('{{route("crirar a rota de finalizar pedido")}}',{
+            hashseller : hashseller,
+            cardtoken : response.card.token,
+            nparcerla : $(".nparcelas").val(),
+            totalparcela : $(".totalparcela").val(),
+          }, function(){
+            alert(result)
+          });
+        },
+        error : function(err){
+          alert("nao pode buscar token docartao verifique todos os campos")
+          console.log(err)
+        }
       })
     })
+})
 </script>
 @endsection
 @section('conteudo')
@@ -86,38 +121,38 @@
                   </div>
                   <div class="form-group">
                     <label for="cvv">CVV:</label>
-                    <input type="text" class="form-control" id="cvv" name="cvv" >
+                    <input type="text" class="cvv form-control" id="cvv" name="cvv" >
                   </div>
                   <div class="form-group">
                     <label for="mesdeexpiracao">Mês de expiraão:</label>
-                    <input type="text" class="form-control" id="mesdeexpiracao" name="mesdeexpiracao" >
+                    <input type="text" class="mesdeexpiracao form-control" id="mesdeexpiracao" name="mesdeexpiracao" >
                   </div>
                   <div class="form-group">
-                    <label for="anodeexpiracao">Ano de expiração:</label>
-                    <input type="text" class="form-control" id="anodeexpiracao" name="anodeexpiracao" >
+                    <label for="anoexp">Ano de expiração:</label>
+                    <input type="text" class="anoexp form-control" id="anoexp" name="anoexp" >
                   </div>
                   <div class="form-group">
-                    <label for="nomedocartao">Nome do cartão:</label>
-                    <input type="text" class="form-control" id="nomedocartao" name="nomedocartao" >
+                    <label for="nomecartao">Nome do cartão:</label>
+                    <input type="text" class="nomecartao form-control" id="nomecartao" name="nomecartao" >
                   </div>
                   <div class="form-group">
-                    <label for="parcelas">Parcelas:</label>
-                    <input type="text" class="parcelas form-control" id="parcelas" name="parcelas" >
+                    <label for="nparcelas">Parcelas:</label>
+                    <input type="text" class="nparcelas form-control" id="nparcelas" name="nparcelas" >
                   </div>
                   <div class="form-group">
-                    <label for="valortotal">Valor total:</label>
-                    <input type="text" class="form-control" readonly value="{{number_format(\Cart::getTotal(),2,',','.')}}" id="valortotal" name="valortotal" >
+                    <label for="totalfinal">Valor total:</label>
+                    <input type="text" class="totalfinal form-control" readonly value="{{number_format(\Cart::getTotal(),2,',','.')}}" id="totalfinal" name="totalfinal" >
                   </div>
                   <div class="form-group">
-                    <label for="valordeparcelas">Valor de parcelas:</label>
-                    <input type="text" class="form-control" id="valordeparcelas" name="valordeparcelas" >
+                    <label for="totalparcela">Valor de parcelas:</label>
+                    <input type="text" class="totalparcela form-control" id="totalparcela" name="totalparcela" >
                   </div>
                   <div class="form-group">
                     <label for="totalapagar">total a pagar:</label>
                     <input type="text" class="totalapagar form-control"  id="totalapagar" name="totalapagar" >
                   </div>
                   <div class="form-group">
-                    <input class="btn btn-success" type="submit" value="Pagar">
+                    <input class="pagar btn btn-success" type="submit" value="Pagar">
                   </div>
     
                 </div>
