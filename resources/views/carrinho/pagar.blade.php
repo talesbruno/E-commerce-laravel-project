@@ -85,12 +85,12 @@
         expiraionYear : anoexp,
         success : function(response){
           alert("token recuperado com sucesso")
-          $.post('{{route("crirar a rota de finalizar pedido")}}',{
+          $.post('{{route("carrinho.finalizarPedido")}}',{
             hashseller : hashseller,
             cardtoken : response.card.token,
             nparcerla : $(".nparcelas").val(),
             totalparcela : $(".totalparcela").val(),
-          }, function(){
+          }, function(result){
             alert(result)
           });
         },

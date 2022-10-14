@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\VendaService;
 use Illuminate\Http\Request;
 use PagSeguro\Configuration\Configure;
 
@@ -69,5 +70,70 @@ class CarrinhoController extends Controller
 
 
         return view('carrinho.pagar', compact('sessionID', 'itens'));
+    }
+
+    public function finalizar(Request $request){
+        $itens = \Cart::getContent();
+
+        $vendaService = new VendaService();
+        $result = $vendaService->finalizarVenda();
+
+        $credCard = new \PagSeguro\Domains\Requests\DirectPayment\CreditCard();
+        $credCard->setReference("PED_" . $result["idpeido"]);
+        $credCard->setCurrency("BRL");
+
+        foreach($itens as $item){
+            $credCard->addItems()->withParameters(
+                $item->id,
+                $item->name,
+                $item->qtd,
+                number_format($item->price, 2, ".", "")
+            );
+        }
+        $user = auth()->user();
+        $credCard->setSender()->setName($user->name . " " . $user->name);
+        $credCard->setSender()->setName($user->login. "@sandbox.pagseguro.com.br");
+        $credCard->setSender()->setHash($request->input("hashseller"));
+        $credCard->setSender()->setPhone()->withParameters(21, 21311255);
+        $credCard->setSender()->setDocument()->withParameters("CPF", 12345678986);
+
+        $credCard->setShipping()->setAddress()->withParameters(
+            'Av. A',
+            '1234',
+            'jardim botanico',
+            '39520000',
+            'rio de janeiro',
+            'MG',
+            'BRA',
+            'Apt. 200'
+        );
+
+        $credCard->setBilling()->setAddress()->withParameters(
+            'Av. A',
+            '1234',
+            'jardim botanico',
+            '39520000',
+            'rio de janeiro',
+            'MG',
+            'BRA',
+            'Apt. 200'
+        );
+
+        $credCard->setToken($request->input("cardtoken"));
+
+        $nparcela = $request->input("nparcela");
+        $totalapagar = $request->input("totalapagar");
+        $totalparcela = $request->input("totalparcela");
+
+        $credCard->setInstallment()->withParameters($nparcela, number_format($totalparcela, 2,".",""));
+
+        $credCard->setHolder()->setName($user->name . " " . $user->name);
+        $credCard->setHolder()->setDocument()->withParameters("CPF", 12442166686);
+        $credCard->setHolder()->setBirthDate("01/01/1980");
+        $credCard->setHolder()->setPhone()->withParameters(21, 123456789);
+
+        $credCard->setMode("DEFAULT");
+        $result = $credCard->register($this->getCredential());
+       // return redirect()->route('carrinho.carrinho');
     }
 }
