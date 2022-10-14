@@ -10,6 +10,7 @@
             <h2 class="meus-locais">Meus Produtos</h1>
                 <a href="{{route('enderecos.meuendereco')}}">Endereço</a>
                 <a href="{{route('pagseguro.meupagseguro')}}">Cadastre seu pagseguro</a>
+                <a href="#">Pedidos</a>
         </div>
         @if(count($produtos)>0)
 

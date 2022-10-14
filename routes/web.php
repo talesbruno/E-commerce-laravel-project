@@ -27,11 +27,11 @@ Route::get('/Carrinho/limpar', [CarrinhoController::class, 'limparCarrinho'])->n
 Route::get('/Carrinho/Pagar', [CarrinhoController::class, 'finalizarPedido'])->name('carrinho.finalizarPedido')->middleware('auth');
 
 Route::get('/Endereco', [EnderecoController::class, 'show'])->name('enderecos.meuendereco')->middleware('auth');
-Route::get('/Cadastrar/Endereco', [EnderecoController::class, 'create'])->name('enderecos.createendereco')->middleware('auth');
-Route::post('/Cadastrar/Salvar', [EnderecoController::class, 'store'])->name('enderecos.addendereco')->middleware('auth');
+Route::get('/Endereco/Cadastrar', [EnderecoController::class, 'create'])->name('enderecos.createendereco')->middleware('auth');
+Route::post('/Endereco/Salvar', [EnderecoController::class, 'store'])->name('enderecos.addendereco')->middleware('auth');
 
 Route::get('/Pagseguro', [PagseguroController::class, 'show'])->name('pagseguro.meupagseguro')->middleware('auth');
-Route::get('/Cadastrar/Pagseguro', [PagseguroController::class, 'create'])->name('pagseguro.createpagseguro')->middleware('auth');
-Route::post('/Cadastrar/Salvar', [PagseguroController::class, 'store'])->name('pagseguro.addpagseguro')->middleware('auth');
+Route::get('/Pagseguro/Cadastrar', [PagseguroController::class, 'create'])->name('pagseguro.createpagseguro')->middleware('auth');
+Route::post('/Pagseguro/Salvar', [PagseguroController::class, 'store'])->name('pagseguro.addpagseguro')->middleware('auth');
 
 
