@@ -27,11 +27,11 @@
       if(cartaldecredito.length > 6){
         let prefixocartao = cartaldecredito.substr(0, 6)
         PagSeguroDirectPayment.getBrand({
-          cardBin : prefixocartao,
-          success : function(response){
+          cardBin: prefixocartao,
+          success: function(response){
             $(".bandeira").val(response.brand.name)
           },
-          error : function(response){
+          error: function(response){
             alert("numero do cartao invalido")        
           }
         })
@@ -48,10 +48,10 @@
           }
 
           PagSeguroDirectPayment.getInstallments({
-            amount : $(".totalfinal").val(),
-            maxIntallmentNoInteres : 2,
-            brad : bandeira,
-            success : function(response){
+            amount: $(".totalfinal").val(),
+            maxInstallmentNoInterest: 2,
+            brand: bandeira,
+            success: function(response){
               console.log(response);
               let status = response.error
               if(status){
@@ -64,6 +64,9 @@
 
               $(".totalparcela").val(valorTotalParcela)
               $(".totalapagar").val(totalapagar)
+            },
+            error: function(response) {
+              alert("error01")
             }
           })
     })
@@ -78,18 +81,18 @@
       var bandeira = $(".bandeira").val()
 
       PagSeguroDirectPayment.createCardToken({
-        cardNumber : numerocartao,
-        brand : bandeira,
-        cvv : cvv,
-        expirationMonth : mesdeexpiracao,
-        expiraionYear : anoexp,
+        cardNumber: numerocartao,
+        brand: bandeira,
+        cvv: cvv,
+        expirationMonth: mesdeexpiracao,
+        expiraionYear: anoexp,
         success : function(response){
           alert("token recuperado com sucesso")
           $.post('{{route("carrinho.finalizarPedido")}}',{
-            hashseller : hashseller,
-            cardtoken : response.card.token,
-            nparcerla : $(".nparcelas").val(),
-            totalparcela : $(".totalparcela").val(),
+            hashseller: hashseller,
+            cardtoken: response.card.token,
+            nparcerla: $(".nparcelas").val(),
+            totalparcela: $(".totalparcela").val(),
           }, function(result){
             alert(result)
           });
@@ -141,7 +144,7 @@
                   </div>
                   <div class="form-group">
                     <label for="totalfinal">Valor total:</label>
-                    <input type="text" class="totalfinal form-control" readonly value="{{number_format(\Cart::getTotal(),2,',','.')}}" id="totalfinal" name="totalfinal" >
+                    <input type="text" class="totalfinal form-control" readonly value="{{number_format(\Cart::getTotal())}}" id="totalfinal" name="totalfinal" >
                   </div>
                   <div class="form-group">
                     <label for="totalparcela">Valor de parcelas:</label>
@@ -153,6 +156,8 @@
                   </div>
                   <div class="form-group">
                     <input class="pagar btn btn-success" type="submit" value="Pagar">
+                    <p>ou negocie diretamente com o produtor</p>
+                    <a class="pagar btn btn-success" href="#">WhatsApp</a>
                   </div>
     
                 </div>

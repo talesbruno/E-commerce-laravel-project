@@ -31,12 +31,10 @@
                     <span class="ml-2 text-sm text-gray-600">{{ __('Lembre-me') }}</span>
                 </label>
             </div>
-            <div class="flex items-center justify-end mt-4">
-                
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="/register">
-                        Cadastrar
-                    </a>
-               
+            <div class="flex items-center justify mt-4">
+                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="/register">
+                    Cadastrar
+                </a>  
             </div>
 
             <div class="flex items-center justify-end mt-4">
@@ -45,7 +43,7 @@
                         {{ __('Esqueceu sua senha?') }}
                     </a>
                 @endif
-
+                
                 <x-jet-button class="ml-4">
                     {{ __('Entrar') }}
                 </x-jet-button>
