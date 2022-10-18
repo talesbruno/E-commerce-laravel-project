@@ -113,7 +113,7 @@
 <div id="listar-locais">
     <div class="container">
       <h5>Valor total:R$: {{number_format(\Cart::getTotal(),2,',','.')}}</h5>
-        <form action="#" method="POST" enctype="multipart/form-data">
+        <form action="{{route('carrinho.finalizar')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
               <div class="col-md-8">

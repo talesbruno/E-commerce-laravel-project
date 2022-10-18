@@ -121,12 +121,13 @@ class CarrinhoController extends Controller
         );
 
         $credCard->setToken($request->input("cardtoken"));
-
-        $nparcela = $request->input("nparcela");
+        
+        $nparcelas = $request->input("nparcela");
         $totalapagar = $request->input("totalapagar");
         $totalparcela = $request->input("totalparcela");
 
-        $credCard->setInstallment()->withParameters($nparcela, number_format($totalparcela, 2,".",""));
+        $credCard->setInstallment()->withParameters($nparcelas, number_format($totalparcela, 2,".",""));
+        
         // dados do titular do cartao
         $credCard->setHolder()->setName($user->name);
         // passar data de cpf

@@ -24,7 +24,8 @@ Route::post('/Carrinho', [CarrinhoController::class, 'adicionaCarrinho'])->name(
 Route::post('/Carrinho/remover', [CarrinhoController::class, 'removeCarrinho'])->name('carrinho.removecarrinho')->middleware('auth');
 Route::post('/Carrinho/atualizar', [CarrinhoController::class, 'atualizaCarrinho'])->name('carrinho.atualizacarrinho')->middleware('auth');
 Route::get('/Carrinho/limpar', [CarrinhoController::class, 'limparCarrinho'])->name('carrinho.limparcarrinho')->middleware('auth');
-Route::get('/Carrinho/Pagar', [CarrinhoController::class, 'finalizar'])->name('carrinho.finalizarPedido')->middleware('auth');
+Route::get('/Carrinho/Pagar', [CarrinhoController::class, 'finalizarPedido'])->name('carrinho.finalizarPedido')->middleware('auth');
+Route::post('/Carrinho/Pagar', [CarrinhoController::class, 'finalizar'])->name('carrinho.finalizar')->middleware('auth');
 
 Route::get('/Endereco', [EnderecoController::class, 'show'])->name('enderecos.meuendereco')->middleware('auth');
 Route::get('/Endereco/Cadastrar', [EnderecoController::class, 'create'])->name('enderecos.createendereco')->middleware('auth');
