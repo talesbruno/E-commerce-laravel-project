@@ -19,7 +19,7 @@ class VendaService {
         foreach($itens as $item){
             $itensPedio = new Itens_pedido();
 
-            $itensPedio->quantidade = $item->qnt;
+            $itensPedio->quantidade = $item->quantity;
             $itensPedio->preco = $item->price;
             $itensPedio->produto_id = $item->id;
             $itensPedio->pedido_id = $pedido->id;

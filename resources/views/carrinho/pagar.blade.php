@@ -85,13 +85,15 @@
         brand: bandeira,
         cvv: cvv,
         expirationMonth: mesdeexpiracao,
-        expiraionYear: anoexp,
+        expirationYear: anoexp,
         success : function(response){
           alert("token recuperado com sucesso")
+          $('.cardtoken').val(response.card.token);
           $.post('{{route("carrinho.finalizarPedido")}}',{
             hashseller: hashseller,
-            cardtoken: response.card.token,
+            cardtoken: $(".cardtoken").val(),
             nparcerla: $(".nparcelas").val(),
+            totalapagar: $(".totalapagar").val(),
             totalparcela: $(".totalparcela").val(),
           }, function(result){
             alert(result)
@@ -118,6 +120,7 @@
                 <div class="container">
                   <input type="text" name="hashseller" id="hashseller" class="hashseller">
                   <input type="text" name="bandeira" id="bandeira" class="bandeira">
+                  <input type="text" name="cardtoken" id="cardtoken" class="cardtoken">
                   <div class="form-group">
                     <label for="cartaodecredito">cartão de credito:</label>
                     <input type="text" class="cartaodecredito form-control" id="cartaodecredito" name="cartaodecredito" >

@@ -79,23 +79,24 @@ class CarrinhoController extends Controller
         $result = $vendaService->finalizarVenda();
 
         $credCard = new \PagSeguro\Domains\Requests\DirectPayment\CreditCard();
-        $credCard->setReference("PED_" . $result["idpeido"]);
+        $credCard->setReference("PED_" . $result["idpedido"]);
         $credCard->setCurrency("BRL");
 
         foreach($itens as $item){
             $credCard->addItems()->withParameters(
                 $item->id,
                 $item->name,
-                $item->qtd,
+                $item->quantity,
                 number_format($item->price, 2, ".", "")
             );
         }
+
         $user = auth()->user();
-        $credCard->setSender()->setName($user->name . " " . $user->name);
-        $credCard->setSender()->setName($user->login. "@sandbox.pagseguro.com.br");
+        $credCard->setSender()->setName($user->name);
+        $credCard->setSender()->setEmail(str_replace(' ','',$user->name) ."@sandbox.pagseguro.com.br");
         $credCard->setSender()->setHash($request->input("hashseller"));
         $credCard->setSender()->setPhone()->withParameters(21, 21311255);
-        $credCard->setSender()->setDocument()->withParameters("CPF", 12345678986);
+        $credCard->setSender()->setDocument()->withParameters("CPF", 22111944785);
 
         $credCard->setShipping()->setAddress()->withParameters(
             'Av. A',
@@ -126,9 +127,11 @@ class CarrinhoController extends Controller
         $totalparcela = $request->input("totalparcela");
 
         $credCard->setInstallment()->withParameters($nparcela, number_format($totalparcela, 2,".",""));
-
-        $credCard->setHolder()->setName($user->name . " " . $user->name);
-        $credCard->setHolder()->setDocument()->withParameters("CPF", 12442166686);
+        // dados do titular do cartao
+        $credCard->setHolder()->setName($user->name);
+        // passar data de cpf
+        $credCard->setHolder()->setDocument()->withParameters("CPF", 22111944785);
+        // passar data de nacimento
         $credCard->setHolder()->setBirthDate("01/01/1980");
         $credCard->setHolder()->setPhone()->withParameters(21, 123456789);
 
