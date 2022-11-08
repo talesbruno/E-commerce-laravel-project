@@ -5,6 +5,8 @@ use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\CarrinhoController;
 use App\Http\Controllers\EnderecoController;
 use App\Http\Controllers\PagseguroController;
+use App\Http\Controllers\PedidoController;
+use App\Models\Pedido;
 
 Route::get('/', [ProdutoController::class, 'index']);
 Route::get('/Produtos/listar', [ProdutoController::class, 'listarTodosprodutos'])->name('produtos.listar');
@@ -35,4 +37,5 @@ Route::get('/Pagseguro', [PagseguroController::class, 'show'])->name('pagseguro.
 Route::get('/Pagseguro/Cadastrar', [PagseguroController::class, 'create'])->name('pagseguro.createpagseguro')->middleware('auth');
 Route::post('/Pagseguro/Salvar', [PagseguroController::class, 'store'])->name('pagseguro.addpagseguro')->middleware('auth');
 
+Route::get('/Pedido', [PedidoController::class, 'show'])->name('produtos.pedido')->middleware('auth');
 

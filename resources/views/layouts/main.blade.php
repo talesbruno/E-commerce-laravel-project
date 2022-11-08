@@ -22,22 +22,22 @@
         <div class="container" id="nav-container">
             <nav class="navbar  navbar-expand-lg ">
                 <a class="navbar-brand" href="/">
-                    <img id="logo" src="./img/logot.png" alt="">
+                    Queijos Artesanais
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
                     <div class="navbar-nav">
-                        <a class="nav-item nav-link" href="/">Inicio</a>
-                        <a class="nav-item nav-link" href="/Produtos/listar">Queijos</a>
-                        <a class="nav-item nav-link" href="{{ route('carrinho.carrinho')}}"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="badge badge-danger">{{\Cart::getContent()->count()}}</span></a>
+                        <a class="nav-item nav-link" href="/">Home</a>
+                        <a class="nav-item nav-link" href="/Produtos/listar">Queijos</a>                    
                         <a class="nav-item nav-link" href="#sobre-area">Sobre</a>
                         @guest
                         <a class="nav-item nav-link" href="/login">Entrar</a>
                         @endguest
                         @auth
                         <a class="nav-item nav-link" href="/dashboard">Dashboard</a>
+                        <a class="nav-item nav-link" href="{{ route('carrinho.carrinho')}}"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="badge badge-danger">{{\Cart::getContent()->count()}}</span></a>
                         <form action="/logout" method="POST">
                             @csrf
                             <a class="nav-item nav-link" href="/logout" onclick="event.preventDefault();
@@ -56,8 +56,8 @@
                     <div class="row align-items-center">
                         <div class="col-md-4">
                             <div class="container">
-                            <h1 class="titulo">Bem-vindo a</h1>
-                            <h1 class="titulos ">PORTEIRINHA</h1>
+                            <h1 class="titulo">Os melhores</h1>
+                            <h1 class="titulos">QUEIJOS DE MINAS</h1>
                             <div class="input-group">
                                 <div class="form-outline">
                                     <form action="/" method="GET">
@@ -71,7 +71,7 @@
                             </div>
                         </div>
                         <div class="col-md-8 nopadding">
-                            <img class="img-fluid" src="img/1.png" alt="">
+                            <img class="img-fluid" src="img/main.png" alt="">
                         </div>
                     </div>
                 </div>
