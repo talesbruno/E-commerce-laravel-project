@@ -81,9 +81,12 @@ class EnderecoController extends Controller
      * @param  \App\Models\Endereco  $endereco
      * @return \Illuminate\Http\Response
      */
-    public function edit(Endereco $endereco)
+    public function edit($id)
     {
-        //
+        if(!$enderecos = $this->enderecos->find($id)){
+            return redirect()->back();
+        }
+        return view('enderecos.editEndereco', ['enderecos' => $enderecos]);
     }
 
     /**
@@ -93,9 +96,18 @@ class EnderecoController extends Controller
      * @param  \App\Models\Endereco  $endereco
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Endereco $endereco)
+    public function update(Request $request, $id)
     {
-        //
+        if(!$enderecos = $this->enderecos->find($id)){
+            return redirect()->back();
+        }
+        $enderecos->update([
+            'rua'=>$request->rua,
+            'numero'=>$request->numero,
+            'bairro'=>$request->bairro,
+            'cep'=>$request->cep
+        ]);
+        return redirect()->route('enderecos.meuendereco', ['enderecos' => $enderecos]);
     }
 
     /**

@@ -30,6 +30,8 @@ Route::get('/Carrinho/Pagar', [CarrinhoController::class, 'finalizarPedido'])->n
 Route::post('/Carrinho/Pagar', [CarrinhoController::class, 'finalizar'])->name('carrinho.finalizar')->middleware('auth');
 
 Route::get('/Endereco', [EnderecoController::class, 'show'])->name('enderecos.meuendereco')->middleware('auth');
+Route::get('/Endereco/Edit/{id}', [EnderecoController::class, 'edit'])->name('enderecos.editendereco')->middleware('auth');
+Route::put('/Endereco/Update/{id}', [EnderecoController::class, 'update'])->name('enderecos.uptadeendereco')->middleware('auth');
 Route::get('/Endereco/Cadastrar', [EnderecoController::class, 'create'])->name('enderecos.createendereco')->middleware('auth');
 Route::post('/Endereco/Salvar', [EnderecoController::class, 'store'])->name('enderecos.addendereco')->middleware('auth');
 

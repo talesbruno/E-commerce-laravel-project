@@ -22,14 +22,15 @@
         <div class="card green">
             <div class="card-body">
               <h5 class="card-title">Endereco: {{$endereco->rua}}</h5>     
-              <p class="card-text">Numero:{{$endereco->numero}}</p>   
-              <p class="card-text">bairro:{{$endereco->bairro}}</p>  
-              <p class="card-text">cep:{{$endereco->cep}}</p>     
+              <p class="card-text">Numero: {{$endereco->numero}}</p>   
+              <p class="card-text">Bairro: {{$endereco->bairro}}</p>  
+              <p class="card-text">CEP: {{$endereco->cep}}</p>     
             </div>
           </div>
           @endforeach
-          <a href="{{route('enderecos.createendereco')}}">Cadastrar endereço</a>
-
+          <a class="btn btn-primary" href="{{route('enderecos.editendereco',$endereco->id)}}">Alterar endereço</a>
+          <a class="btn btn-success m-2" href="{{route('enderecos.createendereco')}}">Cadastrar endereço</a>
+          
     </div>
 
   </div>
