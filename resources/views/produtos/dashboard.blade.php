@@ -43,7 +43,7 @@
             </tbody>
         </table>
         @else
-        <p>vc ainda tem tem locais cadastrado. <a href="/Cadastrar_Produto/Adicionar_Novo_Produto">Cadastre um local</a></p>
+        <p>vc ainda não tem locais cadastrado. <a href="/Cadastrar_Produto/Adicionar_Novo_Produto">Cadastre um local</a></p>
         @endif
         <div class="cadastrar-novo-local">
             <a href="/Cadastrar_Produto/Adicionar_Novo_Produto" class="btn">Cadatrar produto</a>
