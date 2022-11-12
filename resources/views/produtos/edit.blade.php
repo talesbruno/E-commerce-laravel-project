@@ -6,7 +6,7 @@
 
 <div id="edit">
   <div class="col-12">
-    <h2>Editar Local</h2>
+    <h2>Editar Produto</h2>
   </div>
   <div class="container">
     <div class="container">

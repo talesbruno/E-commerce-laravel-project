@@ -6,11 +6,15 @@
 
 <div id="dashboard">
     <div class="container">
+        
+        <div class="col-12">
+            <a class="btn btn-link menu-dashboard" href="{{route('enderecos.meuendereco')}}">Endereço</a>
+            <a class="btn btn-link menu-dashboard" href="{{route('pagseguro.meupagseguro')}}">Cadastre seu pagseguro</a>
+            <a class="btn btn-link menu-dashboard" href="{{route('produtos.pedido')}}">Pedidos</a>
+        </div>
+
         <div class="col-12">
             <h2 class="meus-locais">Meus Produtos</h1>
-                <a href="{{route('enderecos.meuendereco')}}">Endereço</a>
-                <a href="{{route('pagseguro.meupagseguro')}}">Cadastre seu pagseguro</a>
-                <a href="{{route('produtos.pedido')}}">Pedidos</a>
         </div>
         @if(count($produtos)>0)
 
@@ -27,11 +31,11 @@
                 @foreach($produtos as $produto)
                 <tr class="table-light" scope="row">
                     <td class="bdr">{{$loop->index + 1}}</td>
-                    <td><a class="text-white" href="/Produtos/{{$produto->id}}">{{$produto->nome}}</a></td>
+                    <td><a class="text-black" href="/Produtos/{{$produto->id}}">{{$produto->nome}}</a></td>
                     <td>{{$produto->quantidade}}</td>
                     <td>{{number_format($produto->preco,2,',','.')}}</td>
                     <td class="alinhadoDireita">
-                        <a href="/Produtos/edit/{{$produto->id}}" class="btn"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="/Produtos/edit/{{$produto->id}}" class="btn update"><i class="fa-solid fa-pen-to-square"></i></a>
                         <form action="/Produtos/{{$produto->id}}" method="POST">
                             @csrf
                             @method('DELETE')

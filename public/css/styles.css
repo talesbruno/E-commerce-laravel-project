@@ -241,11 +241,18 @@ footer{
 
 }
 
-
 /* dashboard*/
 
+.menu-dashboard{
+  text-decoration:none;
+  color: #003580;
+  font-size: 20px;
+}
 #dashboard form{
   display: inline-block;
+}
+#dashboard .col-12{
+  padding-top: 20px;
 }
 #dashboard link{
   background-color: #409B00;
@@ -256,9 +263,10 @@ footer{
   color: #FFF;
   font-weight: bold;
 }
-#dashboard a{
+#dashboard .update{
   background-color: #409B00;
   color: #FFF;
+  
 }
 
 #dashboard button{

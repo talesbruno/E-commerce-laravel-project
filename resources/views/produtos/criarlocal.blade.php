@@ -14,7 +14,7 @@
 
 <div id="cadastrar-local">
   <div class="col-12">
-    <h2>Cadastrar Local</h2>
+    <h2>Cadastrar Produto</h2>
   </div>
   <div class="container">
     <div class="container">

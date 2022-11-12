@@ -29,7 +29,7 @@
             </div>
           </div>
           @endforeach
-          <a class="btn btn-primary mt-2" href="{{route('enderecos.editendereco',$endereco->id)}}">Alterar endereço</a>       
+          <a class="btn btn-primary mt-2" href="{{route('enderecos.editendereco', $endereco->id)}}">Alterar endereço</a>       
     </div>
 
   </div>

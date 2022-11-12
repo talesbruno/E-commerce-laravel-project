@@ -13,7 +13,11 @@
             </div>
             <div class="row">
                 <div class="col-md-8">
-                    <p>{{ $produto->descricao }}</p>
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-text">{{ $produto->descricao }}</p>
+                        </div>                      
+                    </div>                   
                 </div>
                 <div class="col-md-4">
                     <div class="card">
