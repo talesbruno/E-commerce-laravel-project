@@ -25,6 +25,7 @@
               <p class="card-text">Quantidade: {{$iten->quantidade}}</p>   
               <p class="card-text">Preço: {{$iten->preco}}</p>  
               <p class="card-text">Produto: {{$iten->produto_id}}</p>  
+              <p class="card-text">Status: {{$iten->pedido->status}}</p>  
               <a href="#">Alterar status</a>    
             </div>
           </div>
