@@ -110,19 +110,19 @@
 @endsection
 @section('conteudo')
 
-<div id="listar-locais">
+<div id="form-pagseguro">
     <div class="container">
-      <h5>Valor total:R$: {{number_format(\Cart::getTotal(),2,',','.')}}</h5>
+      <h5 class="text-center">Valor total: R$: {{number_format(\Cart::getTotal(),2,',','.')}}</h5>
         <form action="{{route('carrinho.finalizar')}}" method="POST" enctype="multipart/form-data">
             @csrf
-            <div class="row">
+            <div class="row align-items-center">
               <div class="col-md-8">
                 <div class="container">
-                  <input type="text" name="hashseller" id="hashseller" class="hashseller">
-                  <input type="text" name="bandeira" id="bandeira" class="bandeira">
-                  <input type="text" name="cardtoken" id="cardtoken" class="cardtoken">
+                  <input type="hidden" name="hashseller" id="hashseller" class="hashseller">
+                  <input type="hidden" name="bandeira" id="bandeira" class="bandeira">
+                  <input type="hidden" name="cardtoken" id="cardtoken" class="cardtoken">
                   <div class="form-group">
-                    <label for="cartaodecredito">cartão de credito:</label>
+                    <label for="cartaodecredito">Cartão de credito:</label>
                     <input type="text" class="cartaodecredito form-control" id="cartaodecredito" name="cartaodecredito" >
                   </div>
                   <div class="form-group">
@@ -130,7 +130,7 @@
                     <input type="text" class="cvv form-control" id="cvv" name="cvv" >
                   </div>
                   <div class="form-group">
-                    <label for="mesdeexpiracao">Mês de expiraão:</label>
+                    <label for="mesdeexpiracao">Mês de expiração:</label>
                     <input type="text" class="mesdeexpiracao form-control" id="mesdeexpiracao" name="mesdeexpiracao" >
                   </div>
                   <div class="form-group">
@@ -154,12 +154,12 @@
                     <input type="text" class="totalparcela form-control" id="totalparcela" name="totalparcela" >
                   </div>
                   <div class="form-group">
-                    <label for="totalapagar">total a pagar:</label>
+                    <label for="totalapagar">Total a pagar:</label>
                     <input type="text" class="totalapagar form-control"  id="totalapagar" name="totalapagar" >
                   </div>
                   <div class="form-group">
-                    <input class="pagar btn btn-success" type="submit" value="Pagar">
-                    <p>ou negocie diretamente com o produtor</p>
+                    <input class="pagar btn btn-success mt-2" type="submit" value="Pagar">
+                    <p class="text mt-2">ou negocie diretamente com o produtor</p>
                     <a class="pagar btn btn-success" href="#">WhatsApp</a>
                   </div>
     

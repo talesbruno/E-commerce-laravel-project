@@ -52,7 +52,7 @@
     <main>
         <div class="container-fluid">
             <div id="principal">
-                <div class="container-fluid">
+                <div class="container-fluid h-100">
                     <div class="row align-items-center">
                         <div class="col-md-4">
                             <div class="container">
