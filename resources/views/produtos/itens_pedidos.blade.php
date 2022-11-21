@@ -24,8 +24,10 @@
               <h5 class="card-title">ID: {{$iten->id}}</h5>     
               <p class="card-text">Quantidade: {{$iten->quantidade}}</p>   
               <p class="card-text">Preço: {{$iten->preco}}</p>  
-              <p class="card-text">Produto: {{$iten->produto_id}}</p>  
+              <p class="card-text">Produto: {{$iten->produto->nome}}</p>  
               <p class="card-text">Status: {{$iten->pedido->status}}</p>  
+              <p class="card-text">Usuario: {{$iten->pedido->user_id}}</p> 
+              <p class="card-text">Data: {{$iten->pedido->created_at}}</p> 
               <a href="#">Alterar status</a>    
             </div>
           </div>

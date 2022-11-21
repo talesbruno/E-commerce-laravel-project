@@ -12,13 +12,15 @@ class Itens_pedido extends Model
     protected $guarded = [];
 
     
-    public function produtos(){
+    public function produto(){
         return $this->belongsTo(Produto::class, 'produto_id');
     }
 
     public function pedido(){
         return $this->belongsTo(Pedido::class, 'pedido_id');
     }
+    
+
 
 
 }

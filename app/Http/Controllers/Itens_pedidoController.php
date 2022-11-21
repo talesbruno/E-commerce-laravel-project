@@ -55,7 +55,7 @@ class Itens_pedidoController extends Controller
     public function show()
     {
        
-        $itens_pedidos = Itens_pedido::with('pedido')->get();
+        $itens_pedidos = Itens_pedido::with('pedido','produto')->get();
         
         return view('produtos.itens_pedidos',['itens_pedidos'=> $itens_pedidos]);
     }
