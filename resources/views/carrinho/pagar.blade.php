@@ -115,8 +115,7 @@
       <h5 class="text-center">Valor total: R$: {{number_format(\Cart::getTotal(),2,',','.')}}</h5>
         <form action="{{route('carrinho.finalizar')}}" method="POST" enctype="multipart/form-data">
             @csrf
-            <div class="row align-items-center">
-              <div class="col-md-8">
+                       
                 <div class="container">
                   <input type="hidden" name="hashseller" id="hashseller" class="hashseller">
                   <input type="hidden" name="bandeira" id="bandeira" class="bandeira">
@@ -161,10 +160,8 @@
                     <input class="pagar btn btn-success mt-2" type="submit" value="Pagar">
                     <p class="text mt-2">ou negocie diretamente com o produtor</p>
                     <a class="pagar btn btn-success" href="#">WhatsApp</a>
-                  </div>
-    
-                </div>
-              </div>
+                  </div> 
+                </div>           
           </form>   
     </div>    
 </div>

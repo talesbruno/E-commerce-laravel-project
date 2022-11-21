@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\CarrinhoController;
 use App\Http\Controllers\EnderecoController;
+use App\Http\Controllers\Itens_pedidoController;
 use App\Http\Controllers\PagseguroController;
 use App\Http\Controllers\PedidoController;
 use App\Models\Pedido;
@@ -40,4 +41,5 @@ Route::get('/Pagseguro/Cadastrar', [PagseguroController::class, 'create'])->name
 Route::post('/Pagseguro/Salvar', [PagseguroController::class, 'store'])->name('pagseguro.addpagseguro')->middleware('auth');
 
 Route::get('/Pedido', [PedidoController::class, 'show'])->name('produtos.pedido')->middleware('auth');
+Route::get('/Pedido/status', [Itens_pedidoController::class, 'show'])->name('produtos.itens_pedidos')->middleware('auth');
 

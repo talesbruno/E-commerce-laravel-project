@@ -10,7 +10,8 @@
         <div class="col-12">
             <a class="btn btn-link menu-dashboard" href="{{route('enderecos.meuendereco')}}">Endereço</a>
             <a class="btn btn-link menu-dashboard" href="{{route('pagseguro.meupagseguro')}}">Cadastre seu pagseguro</a>
-            <a class="btn btn-link menu-dashboard" href="{{route('produtos.pedido')}}">Pedidos</a>
+            <a class="btn btn-link menu-dashboard" href="{{route('produtos.pedido')}}">Meus Pedidos</a>
+            <a class="btn btn-link menu-dashboard" href="{{route('produtos.itens_pedidos')}}">Pedidos a enviar</a>
         </div>
 
         <div class="col-12">
@@ -47,7 +48,7 @@
             </tbody>
         </table>
         @else
-        <p>vc ainda não tem locais cadastrado. <a href="/Cadastrar_Produto/Adicionar_Novo_Produto">Cadastre um local</a></p>
+        <p>vc ainda não tem produtos cadastrado. <a href="/Cadastrar_Produto/Adicionar_Novo_Produto">Cadastre um produto</a></p>
         @endif
         <div class="cadastrar-novo-local">
             <a href="/Cadastrar_Produto/Adicionar_Novo_Produto" class="btn">Cadatrar produto</a>
