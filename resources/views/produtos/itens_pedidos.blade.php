@@ -21,7 +21,7 @@
       @foreach($itens_pedidos as $iten)
         <div class="card green">
             <div class="card-body">
-              <h5 class="card-title">ID: {{$iten->id}}</h5>     
+              <h5 class="card-title">ID: {{$iten->pedido->id}}</h5>     
               <p class="card-text">Quantidade: {{$iten->quantidade}}</p>   
               <p class="card-text">Preço: {{$iten->preco}}</p>  
               <p class="card-text">Produto: {{$iten->produto->nome}}</p>  
@@ -30,7 +30,7 @@
               <p class="card-text">Endereço: {{$iten->pedido->user->enderecos}}</p> 
               <p class="card-text">Data: {{$iten->pedido->created_at}}</p> 
               
-              <a href="#">Alterar status</a>    
+              <a class="btn btn-link" href="#">Alterar status</a>    
             </div>
           </div>
           @endforeach

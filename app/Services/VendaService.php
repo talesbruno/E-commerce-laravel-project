@@ -20,7 +20,7 @@ class VendaService {
             $itensPedio = new Itens_pedido();
 
             $itensPedio->quantidade = $item->quantity;
-            $itensPedio->preco = $item->price;
+            $itensPedio->preco = $item->price * $item->quantity;
             $itensPedio->produto_id = $item->id;
             $itensPedio->pedido_id = $pedido->id;
             $itensPedio->save();
