@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Endereco;
+use App\Models\Produto;
 use App\Models\Itens_pedido;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class Itens_pedidoController extends Controller
 {
@@ -55,8 +58,15 @@ class Itens_pedidoController extends Controller
     public function show()
     {
        
-        $itens_pedidos = Itens_pedido::with('pedido','produto')->get();
-        
+        $itens_pedidos = Itens_pedido::with([
+            'pedido' => [
+                'user' => [
+                    'enderecos'
+                ]
+            ]
+            ])->get();
+
+            
         return view('produtos.itens_pedidos',['itens_pedidos'=> $itens_pedidos]);
     }
 

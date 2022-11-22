@@ -20,7 +20,9 @@ class Itens_pedido extends Model
         return $this->belongsTo(Pedido::class, 'pedido_id');
     }
     
-
-
+    public function parentable()
+    {
+        return $this->morphTo();
+    }
 
 }

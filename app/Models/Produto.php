@@ -16,4 +16,8 @@ class Produto extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
+    public function itens_pedidos(){
+        return $this->hasMany('App\Models\Itens_pedido');
+    }
+
 }
